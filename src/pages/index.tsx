@@ -1,12 +1,12 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Navigation from "../components/navigation";
-import Header from "./home/Header";
+import Header from "./home/header";
 import ShortAbout from "./home/about";
-import ShortProjects from "./home/Projects";
-import ShortSkills from "./home/Skills";
-import ShortExperience from "./home/Experience";
-import Footer from "./home/Footer";
+import ShortProjects from "./home/projects";
+import ShortSkills from "./home/skills";
+import ShortExperience from "./home/experience";
+import Footer from "../components/footer";
 
 import { motion } from "framer-motion";
 

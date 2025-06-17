@@ -1,7 +1,10 @@
+import { title } from "process";
+
 export const portfolioData = {
   header: {
     title: "Mobile & Flutter Developer",
-    description: "Creating seamless user experiences with high standards in quality and performance.",
+    description:
+      "Creating seamless user experiences with high standards in quality and performance.",
   },
   about: {
     content:
@@ -29,20 +32,87 @@ export const portfolioData = {
       items: [
         {
           title: "Mobile Development (Flutter)",
+          icon: "Smartphone", // PascalCase
           description: [
             "Proficient in building native mobile applications for iOS and Android platforms.",
           ],
         },
         {
           title: "Quality Assurance (QA)",
+          icon: "Bug",
           description: [
             "Experienced in testing mobile applications to ensure high quality and reliability.",
           ],
         },
         {
           title: "Frontend Web Development",
+          icon: "Layout",
           description: [
             "Have basic knowledge in building responsive web interfaces using HTML, CSS, JavaScript, and React.",
+          ],
+        },
+      ],
+    },
+    {
+      category: "Additional Skills",
+      items: [
+        {
+          title: "Database Management",
+          icon: "Database",
+          description: [
+            "Familiar with database design and management using SQL and NoSQL databases.",
+          ],
+        },
+        {
+          title: "Google Cloud Platform (GCP)",
+          icon: "Cloud",
+          description: [
+            "Basic understanding of GCP services for deploying and managing applications.",
+          ],
+        },
+      ],
+    },
+    {
+      category: "Tools & Technologies",
+      items: [
+        {
+          title: "Version Control",
+          icon: "GitBranch",
+          description: [
+            "Familiar with Git for version control and collaboration on projects.",
+          ],
+        },
+        {
+          title: "Jira",
+          icon: "ClipboardList",
+          description: [
+            "Experienced in using Jira for task management, sprint planning, and team collaboration.",
+          ],
+        },
+      ],
+    },
+    {
+      category: "Soft Skills",
+      items: [
+        {
+          title: "Problem Solving",
+          icon: "Puzzle",
+          description: [
+            "Strong analytical skills with a focus on finding effective solutions to complex problems.",
+          ],
+        },
+        {
+          title: "Communication",
+          icon: "MessageCircle",
+          description: [
+            "Effective communicator with the ability to collaborate with team members and stakeholders.",
+          ],
+        },
+        {
+          title: "Adaptability",
+          icon: "Repeat",
+          description: [
+            "Quick learner who can adapt to new technologies and methodologies as needed.",
           ],
         },
       ],

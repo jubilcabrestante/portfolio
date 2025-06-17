@@ -3,7 +3,7 @@ import profileImg from "../../assets/profile.png";
 
 const Header = () => {
   return (
-    <header className="text-black py-12 px-4">
+    <header className="text-black pt-15 px-4">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-[40%_60%] items-center gap-6">
         {/* Left side: Image */}
         <div className="flex justify-center items-center h-full">
