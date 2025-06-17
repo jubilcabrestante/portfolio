@@ -8,7 +8,7 @@ export const portfolioData = {
   },
   about: {
     content:
-      "I'm Jubil L. Cabrestante, a graduating Information Technology student with a strong focus on mobile and web development. While I have full-stack experience in both frontend and backend technologies, my core strength lies in Flutter development. I’m passionate about building high-quality, user-friendly applications. My experience in quality assurance also enables me to deliver reliable and thoroughly tested solutions.",
+      "I'm Jubil L. Cabrestante, a 25-year-old graduating Information Technology student from Palawan State University. I specialize in mobile and web development, with a strong emphasis on Flutter. While I have full-stack experience across both frontend and backend technologies, my core strength lies in building high-quality, user-friendly mobile applications. My background in quality assurance further enhances my ability to deliver reliable, thoroughly tested solutions.",
   },
   projects: [
     {

@@ -23,7 +23,7 @@ const ContactPage = () => {
   return (
     <>
       <Navigation />
-      <section className="py-12 px-4">
+      <section className="py-12 px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40">
         <div className="container mx-auto max-w-3xl">
           <h2 className="text-3xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-blue-500 inline-block">
             Contact Me

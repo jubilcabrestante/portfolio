@@ -1,5 +1,5 @@
 import React from "react";
-import { portfolioData } from "../../data/portfolioData";
+import { portfolioData } from "@/data/portfolioData";
 
 const ShortAbout = () => {
   return (
@@ -12,8 +12,8 @@ const ShortAbout = () => {
           {portfolioData.about.content}
         </p>
         <a
-          href=""
-          className="bg-gray-200 rounded-2xl px-3 text-black font-semibold mt-4 inline-block hover:bg-gray-400 transition-colors"
+          href="/about/about_page"
+          className="bg-gray-200 rounded-2xl px-6 py-1 text-black font-semibold mt-4 inline-block hover:bg-gray-400 transition-colors"
         >
           Learn More
         </a>

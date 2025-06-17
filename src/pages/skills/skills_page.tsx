@@ -1,5 +1,5 @@
 import React from "react";
-import { portfolioData } from "../../data/portfolioData";
+import { portfolioData } from "@/data/portfolioData";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import SkillsGrid from "@/components/skill_grid"; // Make sure path is correct
@@ -9,7 +9,7 @@ const SkillsPage = () => {
   return (
     <>
       <Navigation />
-      <section className="py-12 px-40">
+      <section className="flex-grow px-4 py-12 sm:px-8 md:px-16 lg:px-24 xl:px-40">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-gray-800 mb-4 pb-2 border-b-2 inline-block">
             Skills
