@@ -1,5 +1,6 @@
 import React from "react";
 import { portfolioData } from "@/data/portfolioData";
+import Link from "next/link";
 
 const ShortAbout = () => {
   return (
@@ -11,12 +12,12 @@ const ShortAbout = () => {
         <p className="text-gray-600 text-lg leading-relaxed max-w-6xl">
           {portfolioData.about.content}
         </p>
-        <a
+        <Link
           href="/about/about_page"
           className="bg-gray-200 rounded-2xl px-6 py-1 text-black font-semibold mt-4 inline-block hover:bg-gray-400 transition-colors"
         >
           Learn More
-        </a>
+        </Link>
       </div>
     </section>
   );

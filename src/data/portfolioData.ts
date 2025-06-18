@@ -86,7 +86,7 @@ export const portfolioData = {
           title: "Jira",
           icon: "ClipboardList",
           description: [
-            "Experienced in using Jira for task management, sprint planning, and team collaboration.",
+            "Basic knowledge in using Jira for task management, sprint planning, and team collaboration.",
           ],
         },
       ],

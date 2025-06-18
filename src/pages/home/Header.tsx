@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import profileImg from "@/assets/profile.png";
 
 const Header = () => {
@@ -28,12 +29,12 @@ const Header = () => {
               specialize in mobile and Flutter development, ensuring
               high-quality applications through rigorous QA testing.
             </p>
-            <a
+            <Link
               href="#projects"
               className="mt-4 inline-block bg-blue-600 text-white hover:bg-blue-700 font-medium px-4 py-2 rounded-lg transition-colors"
             >
               View Project →
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import Navigation from "../components/navigation";
 import Header from "./home/header";
@@ -7,14 +6,7 @@ import ShortProjects from "./home/projects";
 import ShortSkills from "./home/skills";
 import ShortExperience from "./home/experience";
 import Footer from "../components/footer";
-
-import { motion } from "framer-motion";
-
-const sectionVariants = {
-  initial: { opacity: 0, x: -100 },
-  whileInView: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: "easeOut" as const },
-};
+import SectionWrapper from "../components/section_wrapper";
 
 const Home = () => {
   return (
@@ -28,26 +20,15 @@ const Home = () => {
       <Navigation />
 
       <main className="flex-grow px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 space-y-24">
-        <motion.div
-          initial={sectionVariants.initial}
-          whileInView={sectionVariants.whileInView}
-          transition={sectionVariants.transition}
-          viewport={{ once: true, amount: 0.3 }}
-        >
+        <SectionWrapper>
           <Header />
-        </motion.div>
+        </SectionWrapper>
 
         {[ShortAbout, ShortProjects, ShortSkills, ShortExperience].map(
           (Component, i) => (
-            <motion.div
-              key={i}
-              initial={sectionVariants.initial}
-              whileInView={sectionVariants.whileInView}
-              transition={sectionVariants.transition}
-              viewport={{ once: true, amount: 0.3 }}
-            >
+            <SectionWrapper key={i}>
               <Component />
-            </motion.div>
+            </SectionWrapper>
           )
         )}
       </main>

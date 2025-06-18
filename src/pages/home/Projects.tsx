@@ -1,5 +1,6 @@
 import React from "react";
 import { portfolioData } from "@/data/portfolioData";
+import Link from "next/link";
 
 const ShortProjects = () => {
   return (
@@ -25,12 +26,12 @@ const ShortProjects = () => {
                   </span>
                 </div>
                 <p className="mt-3 text-gray-600">{project.description}</p>
-                <a
+                <Link
                   href={project.link}
                   className="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium"
                 >
                   View Project →
-                </a>
+                </Link>
               </div>
             </div>
           ))}
