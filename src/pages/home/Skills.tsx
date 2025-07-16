@@ -4,7 +4,7 @@ import SkillsGrid from "@/components/skill_grid"; // adjust path if needed
 
 const ShortSkills = () => {
   return (
-    <section className="flex-grow px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40">
+    <section className="flex-grow px-4">
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-gray-800 mb-4 pb-2 inline-block">
           Skills

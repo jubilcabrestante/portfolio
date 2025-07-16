@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export const portfolioData = {
   header: {
     title: "Mobile & Flutter Developer",
@@ -25,14 +23,22 @@ export const portfolioData = {
         "A mobile app for booking transportation services in the Philippines, with a focus on user experience and simplicity.",
       link: "#",
     },
+    {
+      title: "PBNHS Web App",
+      framework: "Flutter Web",
+      description:
+        "A web application developed for Port Barton National High School to streamline teachers' report submissions and file storage, similar to a simplified Google Drive.",
+      link: "#",
+    },
   ],
+
   skills: [
     {
       category: "Core Skills",
       items: [
         {
           title: "Mobile Development (Flutter)",
-          icon: "Smartphone", // PascalCase
+          icon: "Smartphone",
           description: [
             "Proficient in building native mobile applications for iOS and Android platforms.",
           ],
@@ -48,7 +54,7 @@ export const portfolioData = {
           title: "Frontend Web Development",
           icon: "Layout",
           description: [
-            "Have basic knowledge in building responsive web interfaces using HTML, CSS, JavaScript, and React.",
+            "Have basic knowledge in building responsive web interfaces using HTML, CSS, JavaScript, React and NextJs.",
           ],
         },
       ],
@@ -60,7 +66,7 @@ export const portfolioData = {
           title: "Database Management",
           icon: "Database",
           description: [
-            "Familiar with database design and management using SQL and NoSQL databases.",
+            "Familiar with database design and management using NoSQL databases.",
           ],
         },
         {
@@ -102,10 +108,10 @@ export const portfolioData = {
           ],
         },
         {
-          title: "Communication",
-          icon: "MessageCircle",
+          title: "Critical Thinking",
+          icon: "Brain",
           description: [
-            "Effective communicator with the ability to collaborate with team members and stakeholders.",
+            "Able to assess situations logically, evaluate options objectively, and make informed decisions based on evidence.",
           ],
         },
         {
