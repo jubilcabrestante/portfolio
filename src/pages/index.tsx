@@ -1,12 +1,12 @@
 import Head from "next/head";
-import Navigation from "../components/navigation";
+import Navigation from "../components/Navigation";
 import Header from "./home/header";
 import ShortAbout from "./home/about";
 import ShortProjects from "./home/projects";
-import ShortSkills from "./home/skills";
+import ShortSkills from "./home/Skills";
 import ShortExperience from "./home/experience";
-import Footer from "../components/footer";
-import SectionWrapper from "../components/section_wrapper";
+import Footer from "../components/Footer";
+import SectionWrapper from "../components/utils/section_wrapper";
 
 const Home = () => {
   return (

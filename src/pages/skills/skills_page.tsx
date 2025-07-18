@@ -1,10 +1,10 @@
 import React from "react";
 import { portfolioData } from "@/data/portfolioData";
-import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import SkillsGrid from "@/components/skill_grid";
 import * as Icons from "lucide-react";
-import SectionWrapper from "@/components/section_wrapper";
+import SectionWrapper from "@/components/utils/section_wrapper";
 
 const SkillsPage = () => {
   return (

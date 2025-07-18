@@ -1,17 +1,8 @@
-// components/skill_grid.tsx
+// skill_grid.tsx
+
 import React from "react";
 import * as Icons from "lucide-react";
-
-type SkillItem = {
-  title: string;
-  icon?: keyof typeof Icons;
-  description: string[];
-};
-
-type SkillGroup = {
-  category: string;
-  items: SkillItem[];
-};
+import type { SkillGroup } from "../types/skill_types";
 
 type SkillsGridProps = {
   skills: SkillGroup[];

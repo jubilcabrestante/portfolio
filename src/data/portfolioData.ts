@@ -1,4 +1,8 @@
-export const portfolioData = {
+// portfolioData.ts
+
+import { PortfolioData } from "../types/skill_types";
+
+export const portfolioData: PortfolioData = {
   header: {
     title: "Mobile & Flutter Developer",
     description:
@@ -31,7 +35,6 @@ export const portfolioData = {
       link: "#",
     },
   ],
-
   skills: [
     {
       category: "Core Skills",

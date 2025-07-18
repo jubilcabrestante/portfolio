@@ -1,6 +1,6 @@
 import React from "react";
-import Navigation from "@/components/navigation";
-import Footer from "@/components/footer";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { portfolioData } from "@/data/portfolioData";
 
 const AboutPage = () => {

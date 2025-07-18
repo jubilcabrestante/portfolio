@@ -1,26 +1,9 @@
-import Footer from "@/components/footer";
-import Navigation from "@/components/navigation";
-import SectionWrapper from "@/components/section_wrapper";
+import Footer from "@/components/Footer";
+import Navigation from "@/components/Navigation";
+import SectionWrapper from "@/components/utils/section_wrapper";
 import React from "react";
 
 const ContactPage = () => {
-  const [formData, setFormData] = React.useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert(`Thank you, ${formData.name}! Your message has been received.`);
-  };
-
   return (
     <>
       <Navigation />
@@ -31,79 +14,34 @@ const ContactPage = () => {
               Contact Me
             </h2>
           </SectionWrapper>
+
           <SectionWrapper>
             <p className="text-gray-600 text-lg leading-relaxed mb-8">
-              I'm always open to discussing new projects, creative ideas, or
-              opportunities to be part of your visions. Feel free to reach out!
+              I'm always open to collaborating on new projects, exploring
+              creative ideas, or contributing to meaningful work. Feel free to
+              get in touch!
             </p>
-          </SectionWrapper>
 
-          <SectionWrapper>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block mb-2 font-semibold text-gray-700"
+            <div className="text-gray-700 text-lg space-y-2 mb-4">
+              <p>
+                <span className="font-semibold">Email:</span>{" "}
+                <a
+                  href="mailto:jubilcabrestante.work@gmail.com"
+                  className="text-blue-600 hover:underline"
                 >
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full border border-gray-300 rounded-2xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your full name"
-                  required
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block mb-2 font-semibold text-gray-700"
+                  jubilcabrestante.work@gmail.com
+                </a>
+              </p>
+              <p>
+                <span className="font-semibold">Phone:</span>{" "}
+                <a
+                  href="tel:+639926273091"
+                  className="text-blue-600 hover:underline"
                 >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full border border-gray-300 rounded-2xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your email"
-                  required
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block mb-2 font-semibold text-gray-700"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  className="w-full border border-gray-300 rounded-2xl px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your message"
-                  rows={5}
-                  required
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-4xl hover:bg-blue-700 transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
+                  +639926273091
+                </a>
+              </p>
+            </div>
           </SectionWrapper>
         </div>
       </section>

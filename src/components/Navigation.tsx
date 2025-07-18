@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import SocialMedia from "./socials";
+import SocialMedia from "@/components/SocialMedia/SocialMedia";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
