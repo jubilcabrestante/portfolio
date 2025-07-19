@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import SocialMedia from "@/components/SocialMedia/SocialMedia";
 
 const Navigation = () => {
@@ -9,18 +7,19 @@ const Navigation = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Nav links with section IDs (anchors)
-  const navLinks = [
-    { label: "Home", href: "#header" },
-    { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Experience", href: "#experience" },
-    { label: "Certificates", href: "#certificates" },
-    { label: "Contact", href: "#contact" },
-  ];
+  const navLinks = useMemo(
+    () => [
+      { label: "Home", href: "#header" },
+      { label: "About", href: "#about" },
+      { label: "Projects", href: "#projects" },
+      { label: "Skills", href: "#skills" },
+      { label: "Experience", href: "#experience" },
+      { label: "Certificates", href: "#certificates" },
+      { label: "Contact", href: "#contact" },
+    ],
+    []
+  );
 
-  // Update activeSection on scroll based on viewport
   useEffect(() => {
     const handleScroll = () => {
       let currentSection = "";
@@ -38,7 +37,7 @@ const Navigation = () => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // initial check
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, [navLinks]);
