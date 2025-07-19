@@ -1,25 +1,41 @@
 "use client";
 
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, Variants } from "framer-motion";
+import React, { ReactNode, HTMLAttributes } from "react";
 
-const sectionVariants = {
+const sectionVariants: Variants = {
   initial: { opacity: 0, x: -100 },
   whileInView: { opacity: 1, x: 0 },
-  transition: { duration: 0.6, ease: "easeOut" as const },
 };
 
-interface SectionWrapperProps {
-  children: React.ReactNode;
+const transition = {
+  duration: 0.6,
+  ease: "easeOut" as const,
+};
+
+interface SectionWrapperProps extends HTMLAttributes<HTMLDivElement> {
+  children: ReactNode;
+  // You can extend with other props if needed
 }
 
-const SectionWrapper: React.FC<SectionWrapperProps> = ({ children }) => {
+const SectionWrapper: React.FC<SectionWrapperProps> = ({
+  children,
+  className,
+  id,
+  style,
+  title,
+}) => {
   return (
     <motion.div
-      initial={sectionVariants.initial}
-      whileInView={sectionVariants.whileInView}
-      transition={sectionVariants.transition}
+      initial="initial"
+      whileInView="whileInView"
+      variants={sectionVariants}
+      transition={transition}
       viewport={{ once: true, amount: 0.3 }}
+      className={className}
+      id={id}
+      style={style}
+      title={title}
     >
       {children}
     </motion.div>

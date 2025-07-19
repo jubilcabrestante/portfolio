@@ -1,7 +1,10 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import useIsMobile from "../utils/useIsMobile"; // adjust path
+import { ArrowRight } from "lucide-react";
 
 const ProjectCard = ({ project, index }: { project: any; index: number }) => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -79,7 +82,18 @@ const ProjectCard = ({ project, index }: { project: any; index: number }) => {
             </span>
           </div>
           <p className="mt-3 text-gray-600">{project.description}</p>
-          <Link href={project.link}>View Project →</Link>
+
+          {project.link?.trim() && (
+            <Link
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 mt-4 text-sm font-medium bg-blue-950 text-white px-3 py-1.5 rounded-lg hover:bg-gray-800 transition"
+            >
+              View Project
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          )}
         </div>
       </div>
 

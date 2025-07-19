@@ -4,15 +4,15 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="text-black pt-15 px-4">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-[40%_60%] items-center gap-6">
+    <header className="text-black pt-15 ">
+      <div className="container grid grid-cols-1 md:grid-cols-[40%_60%] items-center gap-6">
         {/* Left side: Image */}
         <div className="flex justify-center items-center h-full">
           <Image
             src="/assets/profile.png"
             alt="Profile"
-            width={300}
-            height={300}
+            width={350}
+            height={350}
             className="rounded-md object-cover"
           />
         </div>

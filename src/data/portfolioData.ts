@@ -18,7 +18,7 @@ export const portfolioData: PortfolioData = {
       framework: "Flutter",
       description:
         "A mobile application designed to help users learn the Tagalog and Cuyonon languages through translation tools and quizzes.",
-      link: "#",
+      // link: "#",
       images: [
         "/assets/taga-cuyo/1.png",
         "/assets/taga-cuyo/2.png",
@@ -33,11 +33,14 @@ export const portfolioData: PortfolioData = {
       framework: "Flutter",
       description:
         "A mobile app for booking transportation services in the Philippines, with a focus on user experience and simplicity.",
-      link: "#",
+      link: "https://play.google.com/store/apps/details?id=com.app.sakayna_app",
       images: [
         "/assets/sakayna/1.png",
         "/assets/sakayna/2.png",
         "/assets/sakayna/3.png",
+        "/assets/sakayna/4.jpg",
+        "/assets/sakayna/5.jpg",
+        "/assets/sakayna/6.jpg",
       ],
     },
     {
@@ -45,7 +48,7 @@ export const portfolioData: PortfolioData = {
       framework: "Flutter Web",
       description:
         "A web app developed for Port Barton National High School to streamline teachers’ report submissions.",
-      link: "#",
+      // link: "#",
       images: [
         "/assets/pbnhs/1.png",
         "/assets/pbnhs/2.png",
@@ -64,6 +67,14 @@ export const portfolioData: PortfolioData = {
         "/assets/movie/3.png",
         "/assets/movie/4.png",
       ],
+    },
+    {
+      title: "Portfolio Website",
+      framework: "Next.js, React",
+      description:
+        "A personal portfolio website built with Next.js and React, showcasing my projects and skills.",
+      // link: "https://jubilcabrestante.github.io/portfolio/",
+      images: ["/assets/portfolio/1.png", "/assets/portfolio/2.png"],
     },
   ],
   skills: [
@@ -160,18 +171,18 @@ export const portfolioData: PortfolioData = {
   ],
   experience: [
     {
-      position: "Mobile Developer & QA Engineer",
+      position: "Mobile Developer & QA Engineer (Intern)",
       company: "Sakayna",
       period: "Jan 2025 – May 2025",
       description:
-        "Contributed to the development and testing of a ride-booking app with a focus on UI/UX, reliability, and performance.",
+        "Contributed to the development and quality assurance of a ride-booking mobile application based in Tagum City, Davao. Played a key role in testing user flows, enhancing UI/UX design, and ensuring app reliability and performance across devices to provide a seamless experience for local commuters.",
     },
     {
-      position: "Mobile Developer",
+      position: "Mobile Developer (Team Leader)",
       company: "Thesis Project – Taga-Cuyo App",
       period: "Aug 2024 – Apr 2025",
       description:
-        "Developed a learning app that helps users understand and translate Tagalog and Cuyonon languages, including built-in quizzes and a trained translation model.",
+        "Developed as a college thesis project, this comprehensive learning app aims to help users understand and translate Tagalog and Cuyonon languages. It includes interactive built-in quizzes to reinforce learning and features a custom-trained translation model that enhances accuracy and user engagement. The app is designed with user-friendly navigation and supports language preservation and cultural education.",
     },
   ],
 };

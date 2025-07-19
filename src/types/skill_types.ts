@@ -18,9 +18,8 @@ export type Project = {
   framework: string;
   description: string;
   images: string[];
-  link: string;
+  link?: string;
 };
-
 export type Experience = {
   position: string;
   company: string;
