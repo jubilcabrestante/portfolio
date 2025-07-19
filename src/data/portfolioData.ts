@@ -19,6 +19,14 @@ export const portfolioData: PortfolioData = {
       description:
         "A mobile application designed to help users learn the Tagalog and Cuyonon languages through translation tools and quizzes.",
       link: "#",
+      images: [
+        "/assets/taga-cuyo/1.png",
+        "/assets/taga-cuyo/2.png",
+        "/assets/taga-cuyo/3.png",
+        "/assets/taga-cuyo/4.png",
+        "/assets/taga-cuyo/5.png",
+        "/assets/taga-cuyo/6.png",
+      ],
     },
     {
       title: "Sakayna App",
@@ -26,13 +34,36 @@ export const portfolioData: PortfolioData = {
       description:
         "A mobile app for booking transportation services in the Philippines, with a focus on user experience and simplicity.",
       link: "#",
+      images: [
+        "/assets/sakayna/1.png",
+        "/assets/sakayna/2.png",
+        "/assets/sakayna/3.png",
+      ],
     },
     {
       title: "PBNHS Web App",
       framework: "Flutter Web",
       description:
-        "A web application developed for Port Barton National High School to streamline teachers' report submissions and file storage, similar to a simplified Google Drive.",
+        "A web app developed for Port Barton National High School to streamline teachers’ report submissions.",
       link: "#",
+      images: [
+        "/assets/pbnhs/1.png",
+        "/assets/pbnhs/2.png",
+        "/assets/pbnhs/3.png",
+      ],
+    },
+    {
+      title: "Movie Website",
+      framework: "HTML, CSS, JavaScript",
+      description:
+        "A simple movie website showcasing popular films with a responsive design.",
+      link: "https://jubilcabrestante.github.io/movie_website/",
+      images: [
+        "/assets/movie/1.png",
+        "/assets/movie/2.png",
+        "/assets/movie/3.png",
+        "/assets/movie/4.png",
+      ],
     },
   ],
   skills: [

@@ -17,6 +17,7 @@ export type Project = {
   title: string;
   framework: string;
   description: string;
+  images: string[];
   link: string;
 };
 

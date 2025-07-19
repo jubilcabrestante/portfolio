@@ -1,25 +1,27 @@
+"use client";
+
 import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SocialMedia from "@/components/SocialMedia/SocialMedia";
 
 const Navigation = () => {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const navLinks = [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about/about_page" },
-    { label: "Projects", href: "/projects/projects_page" },
-    { label: "Skills", href: "/skills/skills_page" },
-    { label: "Experience", href: "/experience/experience_page" },
-    { label: "Certificates", href: "/certificates/certificates_page" },
-    { label: "Contact", href: "/contact/contact_page" },
+    { label: "Projects", href: "/projects" },
+    { label: "Skills", href: "/skills" },
+    { label: "Certificates", href: "/certificates" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
     <nav className="bg-white shadow-md">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-40 py-4 flex items-center justify-between">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-20 py-4 flex items-center justify-between">
         <div className="text-xl font-semibold text-gray-800">Portfolio</div>
 
         {/* Hamburger Icon */}
@@ -59,7 +61,12 @@ const Navigation = () => {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="hover:text-blue-500 transition-colors"
+                className={
+                  "hover:text-blue-500 transition-colors " +
+                  (pathname === link.href
+                    ? "text-blue-600 font-bold"
+                    : "text-gray-700")
+                }
               >
                 {link.label}
               </Link>
@@ -76,7 +83,12 @@ const Navigation = () => {
             <Link
               key={link.href}
               href={link.href}
-              className="block py-2 hover:text-blue-500 transition-colors"
+              className={
+                "block py-2 hover:text-blue-500 transition-colors " +
+                (pathname === link.href
+                  ? "text-blue-600 font-bold"
+                  : "text-gray-700")
+              }
             >
               {link.label}
             </Link>
