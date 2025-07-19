@@ -14,9 +14,9 @@ const ContactPage = () => {
 
         <SectionWrapper>
           <p className="text-gray-600 text-lg leading-relaxed mb-8">
-            I'm always open to collaborating on new projects, exploring creative
-            ideas, or contributing to meaningful work. Feel free to get in
-            touch!
+            I&apos;m always open to collaborating on new projects, exploring
+            creative ideas, or contributing to meaningful work. Feel free to get
+            in touch!
           </p>
 
           <div className="text-gray-700 text-lg space-y-2 mb-4">
