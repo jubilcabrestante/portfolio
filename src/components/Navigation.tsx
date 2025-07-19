@@ -45,7 +45,7 @@ const Navigation = () => {
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
-      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-20 py-4 flex items-center justify-between">
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-10 py-4 flex items-center justify-between">
         <div className="text-xl font-semibold text-gray-800">Portfolio</div>
 
         {/* Hamburger Icon */}

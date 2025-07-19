@@ -39,7 +39,7 @@ const ContactPage = () => {
               </a>
             </p>
           </div>
-          <div className="mt-8 mb-6">
+          <div className="mt-8 mb-20">
             <p className="mb-2">
               or feel free to contact me on my social media Accounts below.
             </p>
