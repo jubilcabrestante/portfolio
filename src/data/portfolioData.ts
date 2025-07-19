@@ -173,14 +173,14 @@ export const portfolioData: PortfolioData = {
   ],
   experience: [
     {
-      position: "Mobile Developer & QA Engineer (Intern)",
+      position: "Flutter Developer & QA Engineer (Intern)",
       company: "Sakayna",
       period: "Jan 2025 – May 2025",
       description:
         "Contributed to the development and quality assurance of a ride-booking mobile application based in Tagum City, Davao. Played a key role in testing user flows, enhancing UI/UX design, and ensuring app reliability and performance across devices to provide a seamless experience for local commuters.",
     },
     {
-      position: "Mobile Developer (Team Leader)",
+      position: "FLutter Developer (Team Leader)",
       company: "Thesis Project – Taga-Cuyo App",
       period: "Aug 2024 – Apr 2025",
       description:
