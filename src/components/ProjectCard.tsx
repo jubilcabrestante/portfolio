@@ -3,10 +3,17 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useIsMobile from "../utils/useIsMobile"; // adjust path
+import useIsMobile from "../utils/useIsMobile";
+import type { Project } from "@/types/skill_types";
 import { ArrowRight } from "lucide-react";
 
-const ProjectCard = ({ project, index }: { project: any; index: number }) => {
+const ProjectCard = ({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
