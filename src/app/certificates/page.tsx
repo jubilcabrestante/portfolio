@@ -2,6 +2,7 @@
 
 import React from "react";
 import Slider from "react-slick";
+import Image from "next/image";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -66,11 +67,13 @@ const CertificatePage = () => {
         {certificates.map(({ id, title, description, file }) => (
           <div key={id} className="p-4">
             <div className="bg-white rounded shadow p-6 flex flex-col items-center">
-              <img
-                src={file}
+              <Image
+                src={`/${file}`}
                 alt={title}
-                className="max-w-full max-h-124 object-contain mb-4"
-                loading="lazy"
+                width={800}
+                height={600}
+                className="max-w-full h-auto object-contain mb-4"
+                priority={false}
               />
               <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
               <p className="text-gray-600 mt-2 text-center">{description}</p>
