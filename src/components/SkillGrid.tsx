@@ -22,7 +22,7 @@ const SkillsGrid: React.FC<SkillsGridProps> = ({ skills, category }) => {
             {skillGroup.category}
           </h3>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {skillGroup.items.map((skillItem, idx) => {
               const IconComponent =
                 skillItem.icon &&
