@@ -32,11 +32,6 @@ const ProjectCard = ({
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  // These values update automatically when `isMobile` changes,
-  // so React will re-render the modal with correct size
-  const imgWidth = isMobile ? 300 : 800;
-  const imgHeight = isMobile ? 500 : 400;
-
   return (
     <>
       <div className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
@@ -49,9 +44,8 @@ const ProjectCard = ({
               <Image
                 src={project.images[currentImage]}
                 alt={`${project.title} image`}
-                width={imgWidth}
-                height={imgHeight}
-                className="object-contain max-h-full"
+                fill={true}
+                className="object-contain"
                 priority={index === 0}
               />
 
@@ -111,7 +105,7 @@ const ProjectCard = ({
           onClick={closeModal}
         >
           <div
-            className="relative w-full h-[80vh] max-w-4xl mx-auto"
+            className="relative w-full max-h-[80vh] max-w-4xl mx-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
