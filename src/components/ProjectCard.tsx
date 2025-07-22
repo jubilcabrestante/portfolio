@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import useIsMobile from "../utils/useIsMobile";
 import type { Project } from "@/types/skill_types";
 import { ArrowRight } from "lucide-react";
 
@@ -16,8 +15,6 @@ const ProjectCard = ({
 }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const isMobile = useIsMobile();
 
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % project.images.length);
@@ -115,7 +112,7 @@ const ProjectCard = ({
               ✕
             </button>
 
-            <div className="relative w-full h-full rounded overflow-hidden cursor-pointer">
+            <div className="relative w-full h-[80vh] rounded overflow-hidden cursor-pointer">
               <Image
                 src={project.images[currentImage]}
                 alt="Preview"
