@@ -27,7 +27,7 @@ export const portfolioData: PortfolioData = {
         "/assets/taga-cuyo/5.png",
         "/assets/taga-cuyo/6.png",
         "/assets/taga-cuyo/7.jpg",
-        "/assets/taga-cuyo/8.jpg",
+        "/assets/taga-cuyo/8.png",
       ],
     },
     {
