@@ -16,7 +16,7 @@ const SocialMedia = () => {
       ariaLabel: "Facebook",
     },
     {
-      href: "https://www.linkedin.com/in/jubil-cabrestante-4a06b4363/",
+      href: "https://www.linkedin.com/in/jubil-cabrestante-2b4118375/",
       icon: <FaLinkedinIn className="w-4 h-4" />,
       ariaLabel: "LinkedIn",
     },
