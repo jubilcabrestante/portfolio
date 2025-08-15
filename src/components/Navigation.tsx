@@ -92,7 +92,7 @@ const Navigation = () => {
                     ? "text-blue-600 font-bold"
                     : "text-gray-700")
                 }
-                onClick={() => setIsOpen(false)} // close menu on click
+                onClick={() => setIsOpen(false)}
               >
                 {label}
               </a>

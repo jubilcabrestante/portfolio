@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaGithub, FaLinkedinIn } from "react-icons/fa";
 import styles from "./social-media.module.css";
 
 type SocialLink = {
@@ -19,6 +19,11 @@ const SocialMedia = () => {
       href: "https://www.linkedin.com/in/jubil-cabrestante-2b4118375/",
       icon: <FaLinkedinIn className="w-4 h-4" />,
       ariaLabel: "LinkedIn",
+    },
+    {
+      href: "https://github.com/jubilcabrestante",
+      icon: <FaGithub className="w-4 h-4" />,
+      ariaLabel: "GitHub",
     },
   ];
 

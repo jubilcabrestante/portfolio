@@ -10,7 +10,7 @@ export const portfolioData: PortfolioData = {
   },
   about: {
     content:
-      "I'm Jubil L. Cabrestante, a 25-year-old graduating Information Technology student from Palawan State University. I specialize in mobile and web development, with a strong emphasis on Flutter. While I have full-stack experience across both frontend and backend technologies, my core strength lies in building high-quality, user-friendly mobile applications. My background in quality assurance further enhances my ability to deliver reliable, thoroughly tested solutions.",
+      "I'm Jubil L. Cabrestante, a 25-year-old Information Technology graduate from Palawan State University, specializing in Flutter development. I build sleek, high-performance mobile applications with a strong focus on user experience, scalability, and clean architecture. My background spans Bloc state management, Firebase integration, and rigorous testing practices—ensuring every app I deliver is polished, reliable, and production-ready. With a passion for crafting intuitive interfaces and solving real-world problems through code, I bring both technical precision and creative vision to every Flutter project.",
   },
   projects: [
     {
@@ -75,7 +75,6 @@ export const portfolioData: PortfolioData = {
       framework: "Next.js, React",
       description:
         "A personal portfolio website built with Next.js and React, showcasing my projects and skills.",
-      // link: "https://jubilcabrestante.github.io/portfolio/",
       images: ["/assets/portfolio/1.png", "/assets/portfolio/2.png"],
     },
   ],
@@ -88,6 +87,11 @@ export const portfolioData: PortfolioData = {
           icon: "Smartphone",
           description: [
             "Proficient in building native mobile applications for iOS and Android platforms.",
+            "Implement Clean Architecture to ensure scalable and maintainable codebases.",
+            "Use Bloc (Cubit) state management for predictable and testable app state.",
+            "Integrate REST APIs and use Retrofit for efficient network communication.",
+            "Manage multiple app environments using Flutter Flavor.",
+            "Handle errors and failures elegantly using Dartz and functional programming patterns.",
           ],
         },
         {
@@ -113,14 +117,16 @@ export const portfolioData: PortfolioData = {
           title: "Database Management",
           icon: "Database",
           description: [
-            "Familiar with database design and management using NoSQL databases.",
+            "Experienced in designing and managing databases using NoSQL databases, specifically MongoDB and Firebase.",
+            "Able to structure collections, manage real-time data, and implement efficient queries.",
           ],
         },
         {
           title: "Google Cloud Platform (GCP)",
           icon: "Cloud",
           description: [
-            "Basic understanding of GCP services for deploying and managing applications.",
+            "Able to handle backend functions, deploy, and manage applications using GCP services.",
+            "Familiar with cloud functions, Firestore/Firebase hosting, and other GCP tools for scalable app infrastructure.",
           ],
         },
       ],

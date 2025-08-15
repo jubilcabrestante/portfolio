@@ -1,5 +1,3 @@
-// skill_grid.tsx
-
 import React from "react";
 import * as Icons from "lucide-react";
 import type { SkillGroup } from "../types/skill_types";
@@ -37,7 +35,7 @@ const SkillsGrid: React.FC<SkillsGridProps> = ({ skills, category }) => {
               return (
                 <div
                   key={idx}
-                  className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow bg-white"
+                  className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow bg-white min-h-[200px] max-h-[300px] overflow-y-auto"
                 >
                   <h4 className="text-lg font-semibold text-gray-800 mb-2 flex items-center gap-2">
                     {IconComponent && (
