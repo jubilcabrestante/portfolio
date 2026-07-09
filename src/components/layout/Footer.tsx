@@ -1,21 +1,31 @@
 import React from "react";
-import SocialMedia from "@/components/ui/SocialMedia/SocialMedia";
+import { portfolioData } from "@/data/portfolioData";
+import { sections } from "@/data/sections";
 
+/** Minimal footer. */
 const Footer = () => {
-  return (
-    <footer className="bg-[#030712] border-t border-white/10 text-gray-400 py-12 relative z-10 w-full">
-      <div className="container mx-auto px-4 flex flex-col items-center">
-        <div className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-teal-400 select-none mb-6">
-          Portfolio.
-        </div>
-        
-        <div className="flex justify-center mb-6">
-          <SocialMedia />
-        </div>
+  const { paper } = portfolioData;
 
-        <p className="text-sm">
-          © {new Date().getFullYear()} Jubil L. Cabrestante. All rights reserved.
+  return (
+    <footer className="mx-auto mt-24 max-w-5xl px-5 pb-10 print:hidden">
+      <div className="rule-hair" />
+      <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 pt-6">
+        <p className="font-label text-[12px] text-faded">
+          © {new Date().getFullYear()} {paper.name} · {paper.place} · Built
+          with Next.js
         </p>
+        <ul className="flex flex-wrap items-baseline gap-x-5">
+          {sections.map(({ id, label }) => (
+            <li key={id}>
+              <a
+                href={`/#${id}`}
+                className="font-label text-[12px] font-medium text-ink-soft transition-colors hover:text-accent"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );

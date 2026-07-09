@@ -1,54 +1,32 @@
-// HomePage.tsx or PortfolioPage.tsx
-
-"use client";
-
 import React from "react";
-import dynamic from "next/dynamic";
-import SectionWrapper from "@/components/ui/SectionWrapper";
-import HeroSection from "@/components/sections/HeroSection";
-import AboutSection from "@/components/sections/AboutSection";
+import Hero from "@/components/sections/Hero";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import SkillsSection from "@/components/sections/SkillsSection";
+import ExperienceSection from "@/components/sections/ExperienceSection";
+import ContactSection from "@/components/sections/ContactSection";
 
-// Lazy-load heavier below-the-fold sections for optimized performance
-const ExperienceSection = dynamic(() => import("@/components/sections/ExperienceSection"), { ssr: true });
-const CertificateSection = dynamic(() => import("@/components/sections/CertificateSection"), { ssr: true });
-const ContactSection = dynamic(() => import("@/components/sections/ContactSection"), { ssr: true });
-
-const HomePage = () => {
+export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col relative z-0">
-      <main className="flex-grow px-4 sm:px-8 md:px-16 lg:px-24 xl:px-40 space-y-24">
-        <SectionWrapper id="header" className="scroll-mt-28">
-          <HeroSection />
-        </SectionWrapper>
+    <div className="mx-auto max-w-5xl space-y-24 px-5 pb-8">
+      <div id="top" className="scroll-mt-20">
+        <Hero />
+      </div>
 
-        <SectionWrapper id="about" className="scroll-mt-28">
-          <AboutSection />
-        </SectionWrapper>
+      <div id="work" className="scroll-mt-20">
+        <ProjectsSection />
+      </div>
 
-        <SectionWrapper id="projects" className="scroll-mt-28">
-          <ProjectsSection />
-        </SectionWrapper>
+      <div id="skills" className="scroll-mt-20">
+        <SkillsSection />
+      </div>
 
-        <SectionWrapper id="skills" className="scroll-mt-28">
-          <SkillsSection />
-        </SectionWrapper>
+      <div id="experience" className="scroll-mt-20">
+        <ExperienceSection />
+      </div>
 
-        <SectionWrapper id="experience" className="scroll-mt-28">
-          <ExperienceSection />
-        </SectionWrapper>
-
-        <SectionWrapper id="certificates" className="scroll-mt-28">
-          <CertificateSection />
-        </SectionWrapper>
-
-        <SectionWrapper id="contact" className="scroll-mt-28">
-          <ContactSection />
-        </SectionWrapper>
-      </main>
+      <div id="contact" className="scroll-mt-20">
+        <ContactSection />
+      </div>
     </div>
   );
-};
-
-export default HomePage;
+}

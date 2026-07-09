@@ -1,13 +1,28 @@
 import "../styles/globals.css";
-import Navigation from "@/components/layout/Navigation";
+import type { Metadata } from "next";
+import { Libre_Franklin, Lora, Caveat } from "next/font/google";
+import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"], weight: ["300", "400", "500", "700"] });
+const franklin = Libre_Franklin({
+  subsets: ["latin"],
+  variable: "--font-franklin",
+});
 
-export const metadata = {
-  title: "Jubil L. Cabrestante",
-  description: "Senior Software Engineer & UI Developer",
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+});
+
+export const metadata: Metadata = {
+  title: "Jubil L. Cabrestante — Mobile & Full-Stack Web Developer",
+  description:
+    "Portfolio of Jubil L. Cabrestante — turning rough ideas into robust mobile apps and web systems. Flutter, React, Next.js, Firebase, Supabase.",
 };
 
 export default function RootLayout({
@@ -16,13 +31,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className={`${inter.className} flex flex-col min-h-screen bg-[#030712] text-gray-100 antialiased selection:bg-blue-500/30`}>
-        <Navigation />
-        <main className="flex-grow">{children}</main>
+    <html
+      lang="en"
+      className={`${franklin.variable} ${lora.variable} ${caveat.variable}`}
+    >
+      <body className="min-h-screen bg-paper text-ink antialiased">
+        <Navbar />
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

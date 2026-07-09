@@ -1,69 +1,75 @@
 "use client";
 
-import SocialMedia from "@/components/ui/SocialMedia/SocialMedia";
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone } from "lucide-react";
+import { portfolioData } from "@/data/portfolioData";
+import SectionHeading from "@/components/ui/SectionHeading";
 
+/** Closing call to action and contact directory. */
 const ContactSection = () => {
+  const { contact } = portfolioData;
+
+  const directory = [
+    { label: "Email", value: contact.email, href: `mailto:${contact.email}` },
+    { label: "Phone", value: contact.phone, href: `tel:${contact.phone.replace(/\s/g, "")}` },
+    ...contact.socials.map((s) => ({
+      label: s.label,
+      value: s.href.replace(/^https:\/\/(www\.)?/, "").replace(/\/$/, ""),
+      href: s.href,
+    })),
+  ];
+
   return (
-    <div className="container mx-auto max-w-4xl">
+    <section>
+      <SectionHeading kicker="04 · Contact" title="Contact" />
+
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="card-premium relative overflow-hidden text-center p-8 md:p-16"
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.7 }}
+        className="dot-grid mt-8 border border-dashed border-ink/40 px-6 py-12 text-center sm:py-16"
       >
-        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px] -z-10" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-500/10 rounded-full blur-[80px] -z-10" />
-
-        <h2 className="text-subtitle mb-2">Let&apos;s Connect</h2>
-        <h3 className="text-heading-1 mb-8">
-          <span className="text-white">Start a </span>
-          <span className="text-gradient-primary">
-            Conversation
-          </span>
+        <p className="font-sketch text-4xl text-ink-soft sm:text-5xl">
+          have a <span className="sketch-underline">rough idea</span>?
+        </p>
+        <h3 className="mt-3 font-headline text-3xl font-black tracking-tight sm:text-4xl">
+          Let&rsquo;s turn it into something better.
         </h3>
-
-        <p className="text-body-large mb-12 max-w-2xl mx-auto">
-          I&apos;m always open to discussing product design work or partnership opportunities. Inquiries are welcome!
+        <p className="mx-auto mt-4 max-w-xl font-body text-[15px] leading-relaxed text-ink-soft">
+          Open to mobile and web development work — projects, collaborations,
+          and full-time roles. Every serious message gets a reply, usually
+          within the day.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
+        <div className="mt-8 flex justify-center">
           <a
-            href="mailto:jubilcabrestante.work@gmail.com"
-            className="flex items-center gap-3 px-6 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 group"
+            href={`mailto:${contact.email}`}
+            className="bg-ink px-20 py-3 font-label text-[13px] font-bold text-paper transition-colors hover:bg-accent"
           >
-            <div className="bg-blue-500/20 p-3 rounded-full text-blue-400 group-hover:scale-110 transition-transform">
-              <Mail className="w-6 h-6" />
-            </div>
-            <span className="text-base md:text-lg text-gray-300 group-hover:text-white transition-colors">
-              jubilcabrestante.work@gmail.com
-            </span>
-          </a>
-
-          <a
-            href="tel:+639926273091"
-            className="flex items-center gap-3 px-6 py-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 group"
-          >
-            <div className="bg-teal-500/20 p-3 rounded-full text-teal-400 group-hover:scale-110 transition-transform">
-              <Phone className="w-6 h-6" />
-            </div>
-            <span className="text-base md:text-lg text-gray-300 group-hover:text-white transition-colors">
-              +639926273091
-            </span>
+            Send an email
           </a>
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col items-center">
-          <p className="text-gray-500 mb-6">Alternatively, catch me on these platforms</p>
-          <div className="scale-125">
-            <SocialMedia />
-          </div>
-        </div>
+        <ul className="mx-auto mt-10 flex max-w-2xl flex-wrap items-baseline justify-center gap-x-6 gap-y-2">
+          {directory.map((entry) => (
+            <li key={entry.label}>
+              <a
+                href={entry.href}
+                target={entry.href.startsWith("http") ? "_blank" : undefined}
+                rel={entry.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="font-label text-[12px] font-medium text-ink-soft transition-colors hover:text-accent"
+              >
+                <span className="font-bold">{entry.label}:</span> {entry.value}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 font-label text-[11px] text-faded">
+          Based in {contact.location} · remote-friendly
+        </p>
       </motion.div>
-    </div>
+    </section>
   );
 };
 
