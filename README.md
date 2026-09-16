@@ -1,5 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Run and Debug in VS Code
+
+Open this folder in VS Code, select **Run and Debug** (`Ctrl+Shift+D`), then press **F5**. The default **Dzypher: Full-Stack Debug (F5)** configuration starts Next.js with server-side debugging and automatically opens the site in a Chrome debug session.
+
+The workspace also includes these one-click tasks in **Terminal → Run Task**:
+
+- **Dzypher: Run development server** — starts the local app with Fast Refresh.
+- **Dzypher: Type check** — validates TypeScript without building.
+- **Dzypher: Production build** — creates and validates an optimized production build.
+
 ## Getting Started
 
 First, run the development server:

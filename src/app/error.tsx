@@ -2,22 +2,11 @@
 
 export default function Error({ reset }: { error: Error; reset: () => void }) {
   return (
-    <div className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center px-4 py-16 text-center">
-      <p className="font-label text-xs font-bold uppercase tracking-[0.12em] text-accent">
-        Something went wrong
-      </p>
-      <h1 className="mt-3 font-headline text-4xl font-black">
-        An unexpected error interrupted the page.
-      </h1>
-      <p className="mt-3 font-body text-[15px] italic text-ink-soft">
-        Try again — if it keeps happening, it&rsquo;s my bug, not yours.
-      </p>
-      <button
-        onClick={reset}
-        className="mt-8 bg-ink px-6 py-3 font-label text-sm font-bold text-paper transition-colors hover:bg-accent"
-      >
-        Try again
-      </button>
+    <div className="site-width flex min-h-[65vh] flex-col items-center justify-center py-20 text-center">
+      <p className="section-label">Unexpected interruption</p>
+      <h1 className="mt-4 max-w-xl font-display text-4xl font-semibold tracking-[-.06em] text-navy sm:text-6xl">Something got in the way.</h1>
+      <p className="mt-5 max-w-md text-slate-600">Try loading this section again. If the problem remains, we&rsquo;ll be ready when you come back.</p>
+      <button onClick={reset} className="button-primary mt-8">Try again <span>↻</span></button>
     </div>
   );
 }

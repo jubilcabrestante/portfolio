@@ -2,24 +2,11 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto flex min-h-[70vh] max-w-xl flex-col items-center justify-center px-4 py-16 text-center">
-      <p className="font-label text-xs font-bold uppercase tracking-[0.12em] text-accent">
-        Page not found
-      </p>
-      <h1 className="mt-3 font-headline text-7xl font-black">404</h1>
-      <p className="mt-4 font-sketch text-2xl text-ink-soft">
-        this page is still a sketch —
-      </p>
-      <p className="mt-2 font-body text-[15px] italic text-ink-soft">
-        The page you requested doesn&rsquo;t exist, or it moved somewhere
-        better.
-      </p>
-      <Link
-        href="/"
-        className="mt-8 inline-block bg-ink px-6 py-3 font-label text-sm font-bold text-paper transition-colors hover:bg-accent"
-      >
-        Back to home
-      </Link>
+    <div className="site-width flex min-h-[65vh] flex-col items-center justify-center py-20 text-center">
+      <p className="section-label">404 / Lost signal</p>
+      <h1 className="mt-4 font-display text-6xl font-semibold tracking-[-.07em] text-navy sm:text-8xl">This route<br />doesn&rsquo;t exist.</h1>
+      <p className="mt-5 max-w-md text-slate-600">The page may have moved, or the address may be off. Let&rsquo;s get you back to Dzypher.</p>
+      <Link href="/" className="button-primary mt-8">Back to home <span>→</span></Link>
     </div>
   );
 }

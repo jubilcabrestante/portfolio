@@ -1,89 +1,32 @@
 "use client";
 
-import React, { useState } from "react";
 import Link from "next/link";
-import { sections } from "@/data/sections";
-import { cn } from "@/lib/utils";
+import { useState } from "react";
 
-/** Minimal sticky top bar: name on the left, sections and résumé on the right. */
-const Navbar = () => {
+const links = [
+  { href: "#services", label: "Services" },
+  { href: "#work", label: "Work" },
+  { href: "#process", label: "Process" },
+  { href: "#about", label: "About" },
+];
+
+export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink/10 bg-paper/95 backdrop-blur-sm print:hidden">
-      <nav
-        aria-label="Main"
-        className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3.5"
-      >
-        <Link
-          href="/#top"
-          onClick={() => setOpen(false)}
-          className="font-headline text-[15px] font-black tracking-tight"
-        >
-          Jubil L. Cabrestante
+    <header className="site-header">
+      <nav className="site-width flex items-center justify-between gap-5 py-4" aria-label="Main navigation">
+        <Link href="/#top" className="brand" onClick={close} aria-label="Dzypher home">
+          <span className="brand-mark">D</span><span>DZYPHER<span className="text-lime">.</span></span>
         </Link>
-
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-7 sm:flex">
-          {sections.map(({ id, label }) => (
-            <li key={id}>
-              <a
-                href={`/#${id}`}
-                className="font-label text-[13px] font-medium text-ink-soft transition-colors hover:text-ink"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a
-              href="/Resume-Cabrestante.pdf"
-              download
-              className="border border-ink px-3.5 py-1.5 font-label text-[12px] font-bold transition-colors hover:bg-ink hover:text-paper"
-            >
-              Résumé
-            </a>
-          </li>
-        </ul>
-
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen((o) => !o)}
-          className="font-label text-[13px] font-semibold sm:hidden"
-          aria-expanded={open}
-          aria-label="Toggle menu"
-        >
-          Menu {open ? "−" : "+"}
-        </button>
+        <div className="hidden items-center gap-7 lg:flex">
+          {links.map((link) => <a key={link.href} className="nav-link" href={link.href}>{link.label}</a>)}
+          <a className="nav-cta" href="#contact">Start a project <span>↗</span></a>
+        </div>
+        <button onClick={() => setOpen(!open)} className="menu-button lg:hidden" aria-expanded={open} aria-label="Toggle navigation">{open ? "Close" : "Menu"}</button>
       </nav>
-
-      {open && (
-        <ul className="border-t border-ink/10 px-5 py-2 sm:hidden">
-          {sections.map(({ id, label }) => (
-            <li key={id} className="border-b border-ink/10 last:border-b-0">
-              <a
-                href={`/#${id}`}
-                onClick={() => setOpen(false)}
-                className="block py-2.5 font-label text-sm font-medium text-ink-soft"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a
-              href="/Resume-Cabrestante.pdf"
-              download
-              onClick={() => setOpen(false)}
-              className={cn("block py-2.5 font-label text-sm font-bold text-accent")}
-            >
-              Résumé (PDF)
-            </a>
-          </li>
-        </ul>
-      )}
+      {open && <div className="mobile-nav lg:hidden"><div className="site-width py-4">{links.map((link) => <a onClick={close} key={link.href} className="mobile-link" href={link.href}>{link.label}</a>)}<a onClick={close} className="button-primary mt-3" href="#contact">Start a project <span>↗</span></a></div></div>}
     </header>
   );
-};
-
-export default Navbar;
+}

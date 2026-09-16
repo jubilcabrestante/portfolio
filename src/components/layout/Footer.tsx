@@ -1,34 +1,12 @@
-import React from "react";
-import { portfolioData } from "@/data/portfolioData";
-import { sections } from "@/data/sections";
+import Link from "next/link";
 
-/** Minimal footer. */
-const Footer = () => {
-  const { paper } = portfolioData;
-
+export default function Footer() {
   return (
-    <footer className="mx-auto mt-24 max-w-5xl px-5 pb-10 print:hidden">
-      <div className="rule-hair" />
-      <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-3 pt-6">
-        <p className="font-label text-[12px] text-faded">
-          © {new Date().getFullYear()} {paper.name} · {paper.place} · Built
-          with Next.js
-        </p>
-        <ul className="flex flex-wrap items-baseline gap-x-5">
-          {sections.map(({ id, label }) => (
-            <li key={id}>
-              <a
-                href={`/#${id}`}
-                className="font-label text-[12px] font-medium text-ink-soft transition-colors hover:text-accent"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
+    <footer className="bg-navy text-slate-400">
+      <div className="site-width flex flex-col gap-8 border-t border-white/10 py-8 sm:flex-row sm:items-end sm:justify-between">
+        <div><Link href="/#top" className="brand text-white"><span className="brand-mark">D</span><span>DZYPHER<span className="text-lime">.</span></span></Link><p className="mt-3 text-sm">Software development services for useful digital products.</p></div>
+        <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm"><a href="#services">Services</a><a href="#work">Work</a><a href="#process">Process</a><a href="#contact">Contact</a><span className="w-full text-xs sm:w-auto">© {new Date().getFullYear()} Dzypher</span></div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
