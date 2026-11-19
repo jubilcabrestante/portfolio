@@ -135,7 +135,7 @@ export const suki = {
   logo: "/assets/suki/logo.png",
   kind: "Loyalty and ordering platform",
   summary:
-    "Customers shop and earn points, merchants run orders and rewards, and couriers deliver. Seven apps share one Firebase backend, so a single order shows up everywhere it needs to.",
+    "Customers shop and earn points, merchants run orders and rewards, and couriers deliver. Every app runs on one Supabase backend, so a single order shows up everywhere it needs to.",
   role: "We built the platform end to end: the mobile apps, the web apps, and the backend.",
   mobileApps: [
     { name: "Suki Perks", job: "Customers shop, pay, and earn points" },
@@ -145,14 +145,13 @@ export const suki = {
   webApps: [
     { name: "Storefront", job: "Customers order from the web" },
     { name: "Merchant console", job: "Orders, products, rewards, wallet" },
-    { name: "Admin CRM", job: "Merchant approvals and change requests" },
     { name: "Marketing site", job: "Landing pages and legal" },
   ],
   backend: [
-    "One shared Firestore database",
-    "53 Cloud Functions",
-    "Push notifications",
-    "Payments through PayMongo: GCash, Maya, QR Ph",
+    "One shared Supabase Postgres database",
+    "28 Edge Functions",
+    "Realtime updates and push notifications",
+    "Payments through Maya Checkout: cards, Maya, QR Ph",
   ],
 };
 

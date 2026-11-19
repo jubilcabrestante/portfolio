@@ -26,22 +26,31 @@ function useTicker(ref: React.RefObject<HTMLElement | null>, count: number, inte
   return { step, inView, reduced: !!reduced };
 }
 
-/* ---------- Suki: seven apps, one backend ---------- */
-const LEFT = [92, 220, 348];
-const RIGHT = [64, 172, 268, 376];
+/* ---------- Suki: mobile and web apps on one backend ---------- */
+// Map geometry in SVG units. Cards are wide enough for the longest job line
+// (about 202 units at 11.5px), so no description runs past its card.
+const MAP_W = 760;
+const MAP_H = 406;
+const ROWS = [92, 220, 348]; // row centres shared by both columns (three apps a side)
+const CARD_W = 236;
+const HUB_W = 152;
+const HUB_X = (MAP_W - HUB_W) / 2;
+const HUB_CX = MAP_W / 2;
+const LEFT_END = 20 + CARD_W; // right edge of the mobile cards
+const RIGHT_X = MAP_W - 20 - CARD_W; // left edge of the web cards
 
 function SukiMap() {
   const ref = useRef<HTMLDivElement>(null);
   const { inView, reduced } = useTicker(ref, 1, 100000);
   const show = inView || reduced;
-  const leftPaths = LEFT.map((y) => `M196 ${y} C 240 ${y}, 236 220, 276 220`);
-  const rightPaths = RIGHT.map((y) => `M524 ${y} C 480 ${y}, 484 220, 444 220`);
+  const leftPaths = ROWS.map((y) => `M${LEFT_END} ${y} C ${LEFT_END + 26} ${y}, ${HUB_X - 24} 220, ${HUB_X} 220`);
+  const rightPaths = ROWS.map((y) => `M${RIGHT_X} ${y} C ${RIGHT_X - 26} ${y}, ${HUB_X + HUB_W + 24} 220, ${HUB_X + HUB_W} 220`);
 
   return (
     <div ref={ref} className="w-full">
-      <svg viewBox="0 0 720 440" className="w-full" role="img" aria-label="Suki system map: three Flutter mobile apps and four Next.js web apps connected to one Firebase backend.">
-        <text x="20" y="40" fontSize="13" fontWeight="700" fill="#586170">Flutter mobile apps</text>
-        <text x="700" y="22" fontSize="13" fontWeight="700" fill="#586170" textAnchor="end">Next.js web apps</text>
+      <svg viewBox={`0 0 ${MAP_W} ${MAP_H}`} className="w-full" role="img" aria-label="Suki system map: three Kotlin Multiplatform mobile apps and three Next.js web apps connected to one Supabase backend.">
+        <text x="20" y="40" fontSize="13" fontWeight="700" fill="#586170">Kotlin mobile apps</text>
+        <text x={MAP_W - 20} y="40" fontSize="13" fontWeight="700" fill="#586170" textAnchor="end">Next.js web apps</text>
 
         {[...leftPaths, ...rightPaths].map((d, i) => (
           <motion.path
@@ -75,25 +84,25 @@ function SukiMap() {
 
         {suki.mobileApps.map((app, i) => (
           <motion.g key={app.name} initial={{ opacity: reduced ? 1 : 0, x: reduced ? 0 : -16 }} animate={show ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, ease, delay: 0.1 + i * 0.08 }}>
-            <rect x="20" y={LEFT[i] - 28} width="176" height="56" rx="14" fill="#fff" stroke="#dce1e7" />
-            <text x="38" y={LEFT[i] - 4} fontSize="15" fontWeight="800" fill="#0e1117">{app.name}</text>
-            <text x="38" y={LEFT[i] + 15} fontSize="11.5" fill="#586170">{app.job}</text>
+            <rect x="20" y={ROWS[i] - 28} width={CARD_W} height="56" rx="14" fill="#fff" stroke="#dce1e7" />
+            <text x="38" y={ROWS[i] - 4} fontSize="15" fontWeight="800" fill="#0e1117">{app.name}</text>
+            <text x="38" y={ROWS[i] + 15} fontSize="11.5" fill="#586170">{app.job}</text>
           </motion.g>
         ))}
         {suki.webApps.map((app, i) => (
           <motion.g key={app.name} initial={{ opacity: reduced ? 1 : 0, x: reduced ? 0 : 16 }} animate={show ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, ease, delay: 0.1 + i * 0.08 }}>
-            <rect x="524" y={RIGHT[i] - 28} width="176" height="56" rx="14" fill="#fff" stroke="#dce1e7" />
-            <text x="542" y={RIGHT[i] - 4} fontSize="15" fontWeight="800" fill="#0e1117">{app.name}</text>
-            <text x="542" y={RIGHT[i] + 15} fontSize="11.5" fill="#586170">{app.job}</text>
+            <rect x={RIGHT_X} y={ROWS[i] - 28} width={CARD_W} height="56" rx="14" fill="#fff" stroke="#dce1e7" />
+            <text x={RIGHT_X + 18} y={ROWS[i] - 4} fontSize="15" fontWeight="800" fill="#0e1117">{app.name}</text>
+            <text x={RIGHT_X + 18} y={ROWS[i] + 15} fontSize="11.5" fill="#586170">{app.job}</text>
           </motion.g>
         ))}
 
-        <motion.g initial={{ scale: reduced ? 1 : 0.85, opacity: reduced ? 1 : 0 }} animate={show ? { scale: 1, opacity: 1 } : {}} transition={{ duration: 0.8, ease }} style={{ transformOrigin: "360px 220px" }}>
-          <rect x="276" y="150" width="168" height="140" rx="22" fill="#0e1117" />
-          <text x="360" y="198" textAnchor="middle" fontSize="17" fontWeight="800" fill="#f5f7fa">One backend</text>
-          <text x="360" y="222" textAnchor="middle" fontSize="13" fontWeight="700" fill="#2dd4bf">Firebase</text>
-          <text x="360" y="244" textAnchor="middle" fontSize="11.5" fill="#9aa3b1">Firestore</text>
-          <text x="360" y="262" textAnchor="middle" fontSize="11.5" fill="#9aa3b1">53 Cloud Functions</text>
+        <motion.g initial={{ scale: reduced ? 1 : 0.85, opacity: reduced ? 1 : 0 }} animate={show ? { scale: 1, opacity: 1 } : {}} transition={{ duration: 0.8, ease }} style={{ transformOrigin: `${HUB_CX}px 220px` }}>
+          <rect x={HUB_X} y="150" width={HUB_W} height="140" rx="22" fill="#0e1117" />
+          <text x={HUB_CX} y="198" textAnchor="middle" fontSize="17" fontWeight="800" fill="#f5f7fa">One backend</text>
+          <text x={HUB_CX} y="222" textAnchor="middle" fontSize="13" fontWeight="700" fill="#2dd4bf">Supabase</text>
+          <text x={HUB_CX} y="244" textAnchor="middle" fontSize="11.5" fill="#9aa3b1">Postgres + Realtime</text>
+          <text x={HUB_CX} y="262" textAnchor="middle" fontSize="11.5" fill="#9aa3b1">28 Edge Functions</text>
         </motion.g>
       </svg>
     </div>
@@ -267,7 +276,7 @@ export default function Work() {
               title={suki.name}
               kind={suki.kind}
               summary={suki.summary}
-              tags={["Flutter", "Next.js", "Firebase", "PayMongo"]}
+              tags={["Kotlin Multiplatform", "Next.js", "Supabase", "Maya Checkout"]}
               muted="text-slate"
               note={<p className="mt-4 max-w-[30rem] font-semibold">{suki.role}</p>}
             />

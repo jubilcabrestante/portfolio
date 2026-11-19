@@ -13,7 +13,7 @@ related_targets: []
 
 **Action:** start a project by email; the enquiry composer lets visitors tick what they need and prefills the email.
 
-**Proof:** the Suki platform (3 Flutter apps + 4 Next.js apps on one Firebase backend), the PCSD Document Tracking System, and Taga-Cuyo (Best Capstone Project Paper, PSU 2025).
+**Proof:** the Suki platform (3 Kotlin Multiplatform apps + 3 Next.js apps on one Supabase backend), the PCSD Document Tracking System, and Taga-Cuyo (Best Capstone Project Paper, PSU 2025).
 
 **Constraints:** no invented testimonials, client logos, or metrics. Suki screens are coded recreations from the real apps (labelled sample data); PCSD is a workflow animation, never a fake screen. Sakayna is excluded. Every animation has a reduced-motion path and pauses offscreen.
 

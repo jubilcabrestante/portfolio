@@ -23,7 +23,7 @@ Dzypher is a founder-led software studio that designs, builds, and maintains **w
 
 ## Positioning
 
-One studio builds the whole product across every surface it needs: the mobile apps, the web apps, and the shared backend between them. The flagship proof is the Suki platform, where one team shipped three Flutter mobile apps and four Next.js web apps on a single Firebase backend. A client gets web and mobile from the same people instead of coordinating separate vendors.
+One studio builds the whole product across every surface it needs: the mobile apps, the web apps, and the shared backend between them. The flagship proof is the Suki platform, where one team shipped three Kotlin Multiplatform mobile apps and three Next.js web apps on a single Supabase backend. A client gets web and mobile from the same people instead of coordinating separate vendors.
 
 ## Operating Context
 
@@ -35,7 +35,7 @@ One studio builds the whole product across every surface it needs: the mobile ap
 
 - **Core services (confirmed):** web apps; mobile apps for iOS and Android, built with Flutter and native Android in Kotlin (Kotlin confirmed by the owner 2026-11-19).
 - **Supporting services (confirmed):** UI/UX design; backend & cloud (APIs, databases, sign-in, Firebase/Supabase setup); e-commerce & payments (storefronts, ordering, local payments such as GCash, Maya, and QR Ph); maintenance & support (updates, fixes, app-store releases, monitoring).
-- **Stack evidence:** Flutter with Bloc (mobile); Next.js, React, and Tailwind CSS (web); Firebase (Firestore, Cloud Functions, Cloud Messaging, App Check); Supabase/PostgreSQL; Node.js; Python for machine learning.
+- **Stack evidence:** Kotlin Multiplatform for Android and iOS (the Suki apps since 2026-11-05) and Flutter with Bloc (mobile); Next.js, React, and Tailwind CSS (web); Supabase (Postgres, Realtime, Edge Functions: all of Suki's database and backend); Firebase (PCSD and Taga-Cuyo); Node.js; Python for machine learning.
 - **This site:** Next.js 16 App Router + Tailwind CSS v4, single landing page at `/`; `/resume` redirects home; `metadataBase` is `https://dzypher.dev`.
 - **Undecided:** pricing and engagement models, team size beyond the founder, a contact form or call booking.
 
@@ -48,7 +48,7 @@ One studio builds the whole product across every surface it needs: the mobile ap
 
 ## Evidence on Hand
 
-- **Suki platform** (confirmed case study): `suki_perks` Flutter customer app (shop, earn, and redeem points); `suki_business` Flutter merchant app (POS, orders, reports); `suki_rider` Flutter courier app; `suki_perks_web` Next.js customer storefront; `suki_business_web` Next.js merchant console; `suki_crm` Next.js internal admin panel; `suki_landing` Next.js marketing site; `suki_functions` Firebase Cloud Functions backend (53 functions per `C:\projects\suki\suki-docs`). One shared Firestore database. Payments through PayMongo (GCash, Maya, QR Ph). Real brand assets: `C:\projects\suki\suki_perks\assets\images\logo.png` and the two banners. **No real app screenshots exist**; `public/assets/sukiperks/1–4.png` are placeholders.
+- **Suki platform** (confirmed case study, facts corrected by the owner 2026-11-19): Kotlin Multiplatform mobile apps for Android and iOS, which replaced the Flutter apps at 2.0.0 (2026-11-05): `suki_perks` customer app (shop, earn, and redeem points), `suki_business` merchant app (POS, orders, reports), `suki_rider` courier app. Next.js web apps: `suki_perks_web` customer storefront, `suki_business_web` merchant console, `suki_landing` marketing site. All of the database and backend is Supabase, which replaced Firebase: Postgres with Realtime and 28 Edge Functions (`C:\projects\suki-supabase\suki-config`). Online payments through Maya Checkout (cards, Maya, QR Ph), which replaced PayMongo on 2026-09-27. Only these six apps appear on the site; Suki's internal tools are confidential. Real brand assets: `C:\projects\suki\suki_perks\assets\images\logo.png` and the two banners. **No real app screenshots exist**; `public/assets/sukiperks/1–4.png` are placeholders.
 - **PCSD Document Tracking System** (confirmed case study): built for the Palawan Council for Sustainable Development; documents are logged at intake, routed between offices with status history, and released; Flutter Web + Firebase. `public/assets/pcsd-dts/1–3.png` are placeholders.
 - **Taga-Cuyo** (confirmed case study): Tagalog–Cuyonon language-learning app (Flutter + Firebase) with a sequence-to-sequence translation model trained in Python; won Best Capstone Project Paper at the PSU 2025 Research Colloquium (`public/assets/certificates/2.jpg`). Real screenshots: `public/assets/taga-cuyo/1–8`.
 - **Not Dzypher work:** Sakayna (excluded by the owner, 2026-11-19).
