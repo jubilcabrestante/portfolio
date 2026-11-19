@@ -1,18 +1,62 @@
+import "lenis/dist/lenis.css";
 import "../styles/globals.css";
-import type { Metadata } from "next";
-import { DM_Sans, Space_Grotesk } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Archivo } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import Cursor from "@/components/motion/Cursor";
+import SmoothScroll from "@/components/motion/SmoothScroll";
 
-const sans = DM_Sans({ subsets: ["latin"], variable: "--font-sans" });
-const display = Space_Grotesk({ subsets: ["latin"], variable: "--font-display" });
+const archivo = Archivo({
+  subsets: ["latin"],
+  axes: ["wdth"],
+  variable: "--font-archivo",
+  display: "swap",
+});
+
+const description =
+  "Dzypher is a founder-led software studio in Palawan, Philippines. We design, build, and maintain iOS and Android apps, web apps, and the backend that connects them.";
 
 export const metadata: Metadata = {
-  title: "Dzypher — Software Development Services",
-  description: "Dzypher builds thoughtful web platforms, mobile apps, and product systems for businesses ready to move forward.",
   metadataBase: new URL("https://dzypher.dev"),
+  title: "Dzypher — Web and mobile app development",
+  description,
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Dzypher",
+    title: "Dzypher — Web and mobile apps that work as one",
+    description,
+    locale: "en_PH",
+  },
+  twitter: {
+    card: "summary",
+    title: "Dzypher — Web and mobile apps that work as one",
+    description,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0e1117",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" className={`${sans.variable} ${display.variable}`}><body><Navbar /><main>{children}</main><Footer /></body></html>;
+  return (
+    <html lang="en" className={archivo.variable}>
+      <body>
+        <a
+          href="#main"
+          className="sr-only rounded-full bg-teal px-4 py-2 text-sm font-semibold text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60]"
+        >
+          Skip to content
+        </a>
+        <SmoothScroll />
+        <Cursor />
+        <Navbar />
+        <main id="main">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
 }

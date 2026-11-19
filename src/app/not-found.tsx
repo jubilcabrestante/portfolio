@@ -1,12 +1,19 @@
 import Link from "next/link";
+import { Icon } from "@/components/ui/Icon";
 
 export default function NotFound() {
   return (
-    <div className="site-width flex min-h-[65vh] flex-col items-center justify-center py-20 text-center">
-      <p className="section-label">404 / Lost signal</p>
-      <h1 className="mt-4 font-display text-6xl font-semibold tracking-[-.07em] text-navy sm:text-8xl">This route<br />doesn&rsquo;t exist.</h1>
-      <p className="mt-5 max-w-md text-slate-600">The page may have moved, or the address may be off. Let&rsquo;s get you back to Dzypher.</p>
-      <Link href="/" className="button-primary mt-8">Back to home <span>→</span></Link>
-    </div>
+    <section className="shell flex min-h-[80svh] flex-col items-start justify-center pb-24 pt-36">
+      <h1 className="display-xl" style={{ fontStretch: "120%" }}>
+        <span className="block">This page</span>
+        <span className="block">doesn’t exist.</span>
+      </h1>
+      <p className="lede mt-6 max-w-[32rem] text-haze">
+        The link may be old, or the address may have a typo. Everything Dzypher does is on the home page.
+      </p>
+      <Link href="/" className="btn btn-teal mt-9">
+        Go to the home page <Icon name="arrowRight" size={18} />
+      </Link>
+    </section>
   );
 }

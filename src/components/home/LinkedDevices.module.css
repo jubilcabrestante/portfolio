@@ -1,0 +1,705 @@
+/*
+ * Linked-devices demo. Everything inside .stage is sized in em, and the stage font-size
+ * is 1/57 of the container width, so the composition scales as one drawing.
+ * Colours inside the devices are Suki's own (from the Suki apps' themes).
+ */
+.root {
+  container-type: inline-size;
+  --suki: #1ddc8f;
+  --suki-deep: #0fbe77;
+  --suki-ink: #0b1f16;
+  --suki-text: #0e1a16;
+  --suki-muted: #5d6763;
+  --suki-mist: #eef1f0;
+  --suki-line: #e7ebe9;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 57 / 48;
+  font-size: calc(100cqi / 57);
+  color: var(--suki-text);
+  line-height: 1.3;
+  user-select: none;
+}
+
+/* ---------- Browser: Suki Business merchant console ---------- */
+.browser {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 47em;
+  height: 37.5em;
+  overflow: hidden;
+  border-radius: 1.1em;
+  background: #fff;
+  box-shadow:
+    0 0 0 1px rgb(14 17 23 / 0.07),
+    0 1.6em 3.6em -1.4em rgb(14 17 23 / 0.28),
+    0 0.6em 1.2em -0.6em rgb(14 17 23 / 0.12);
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  height: 2.5em;
+  padding: 0 1em;
+  border-bottom: 1px solid #e8ebee;
+  background: #f4f6f8;
+}
+
+.dot {
+  width: 0.62em;
+  height: 0.62em;
+  border-radius: 50%;
+  background: #d3d8de;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-left: 1em;
+  padding: 0.38em 0.9em;
+  border-radius: 0.55em;
+  background: #fff;
+  box-shadow: 0 0 0 1px #e3e7eb;
+  font-size: 0.78em;
+  font-weight: 650;
+}
+
+.tabIcon {
+  width: 1.15em;
+  height: 1.15em;
+  border-radius: 0.3em;
+}
+
+.console {
+  display: grid;
+  grid-template-columns: 4.4em 1fr;
+  height: calc(100% - 2.5em);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9em;
+  padding-top: 1.1em;
+  border-right: 1px solid #eef0f2;
+  color: #8a938f;
+}
+
+.sideLogo {
+  width: 2.3em;
+  height: 2.3em;
+  margin-bottom: 0.4em;
+}
+
+.sideItem {
+  display: grid;
+  place-items: center;
+  width: 2.3em;
+  height: 2.3em;
+  border-radius: 0.6em;
+}
+
+.sideItem svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.sideActive {
+  background: #dcf8ec;
+  color: var(--suki-text);
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+  padding: 1.25em 1.5em;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.kicker {
+  font-size: 0.78em;
+  font-weight: 700;
+  color: var(--suki-muted);
+}
+
+.store {
+  margin-top: 0.1em;
+  font-size: 1.55em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-stretch: 104%;
+}
+
+.badge {
+  min-width: 1.5em;
+  height: 1.5em;
+  margin-left: auto;
+  padding: 0 0.4em;
+  border-radius: 1em;
+  background: var(--suki);
+  color: var(--suki-ink);
+  font-size: 0.85em;
+  font-weight: 800;
+  line-height: 1.5em;
+  text-align: center;
+  animation: pop 0.45s var(--ease-out-expo) both;
+}
+
+/* Two-column dashboard like the real console: main column + notifications */
+.dash {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 12.5em;
+  gap: 1.1em;
+  margin-top: 1.1em;
+}
+
+.notes {
+  overflow: hidden;
+  border: 1px solid var(--suki-line);
+  border-radius: 0.8em;
+  background: #fbfcfb;
+}
+
+.notesHead {
+  display: flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.75em 0.9em;
+  border-bottom: 1px solid var(--suki-line);
+  font-size: 0.8em;
+  font-weight: 800;
+}
+
+.notesHead svg {
+  width: 1.25em;
+  height: 1.25em;
+  color: var(--suki-deep);
+}
+
+.noteList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.note {
+  display: grid;
+  gap: 0.1em;
+  padding: 0.7em 0.9em;
+  border-bottom: 1px solid #f0f2f1;
+}
+
+.noteTitle {
+  font-size: 0.74em;
+  font-weight: 750;
+}
+
+.noteMeta,
+.noteTime {
+  font-size: 0.66em;
+  color: var(--suki-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.newOrder {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 0.6em 0.95em;
+  border-radius: 0.65em;
+  background: var(--suki);
+  color: var(--suki-ink);
+  font-size: 0.76em;
+  font-weight: 800;
+}
+
+.newOrder svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75em;
+}
+
+.metric {
+  padding: 0.8em 1em;
+  border: 1px solid var(--suki-line);
+  border-radius: 0.8em;
+}
+
+.metricTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.72em;
+  font-weight: 700;
+  color: var(--suki-muted);
+}
+
+.metricTop svg {
+  width: 1.4em;
+  height: 1.4em;
+  color: var(--suki-deep);
+}
+
+.metricValue {
+  display: block;
+  margin-top: 0.3em;
+  font-size: 1.42em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.flash {
+  animation: flash 1.6s var(--ease-out-expo) both;
+}
+
+.metricDesc {
+  font-size: 0.66em;
+  color: #7a8480;
+}
+
+.orders {
+  margin-top: 0.95em;
+  overflow: hidden;
+  border: 1px solid var(--suki-line);
+  border-radius: 0.8em;
+}
+
+.ordersHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.7em 1em;
+  border-bottom: 1px solid var(--suki-line);
+  background: #f7f9f8;
+}
+
+.ordersTitle {
+  font-size: 0.86em;
+  font-weight: 800;
+}
+
+.viewAll {
+  font-size: 0.7em;
+  font-weight: 800;
+  color: var(--suki-deep);
+}
+
+.row,
+.rowHead {
+  display: grid;
+  grid-template-columns: 4.6em minmax(0, 1fr) 6.2em 6.4em;
+  align-items: center;
+  padding: 0.6em 1.25em;
+  font-size: 0.74em;
+}
+
+.rowHead {
+  padding-block: 0.5em;
+  border-bottom: 1px solid var(--suki-line);
+  color: #7a8480;
+  font-weight: 700;
+}
+
+.row + .row {
+  border-top: 1px solid #f0f2f1;
+}
+
+.row {
+  font-variant-numeric: tabular-nums;
+}
+
+.rowId {
+  color: var(--suki-muted);
+}
+
+.rowName {
+  font-weight: 700;
+}
+
+.fresh {
+  animation:
+    arrive 0.7s var(--ease-out-expo) both,
+    glow 2.6s ease-out both;
+}
+
+.status {
+  justify-self: start;
+  padding: 0.2em 0.65em;
+  border-radius: 999px;
+  font-size: 0.92em;
+  font-weight: 750;
+}
+
+/* Badge colours from suki_business_web: info / warning / primary / success at 15% */
+.s-new { background: rgb(83 167 255 / 0.15); color: #2f7fd6; }
+.s-accepted { background: rgb(244 162 97 / 0.15); color: #c46a1f; }
+.s-ready { background: rgb(29 220 143 / 0.15); color: #0b9a60; }
+.s-completed { background: rgb(29 220 143 / 0.15); color: #0b9a60; }
+
+/* ---------- Phone: Suki Perks customer app ---------- */
+.phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 19.6em;
+  aspect-ratio: 9 / 18.8;
+  padding: 0.55em;
+  border-radius: 2.9em;
+  background: #0e1117;
+  box-shadow:
+    0 2.2em 4em -1.6em rgb(14 17 23 / 0.5),
+    0 0.8em 1.6em -0.8em rgb(14 17 23 / 0.3);
+}
+
+/* the merchant's "Accept" action on the newest row */
+.accept {
+  justify-self: start;
+  padding: 0.22em 0.7em;
+  border-radius: 0.5em;
+  background: var(--suki);
+  color: var(--suki-ink);
+  font-size: 0.92em;
+  font-weight: 800;
+  transition: transform 0.25s var(--ease-out-expo);
+}
+
+.pressed {
+  transform: scale(0.9);
+}
+
+.statusIn {
+  animation: pop 0.5s var(--ease-out-expo) both;
+}
+
+.screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2.4em;
+  background: #fff;
+}
+
+.island {
+  position: absolute;
+  top: 0.75em;
+  left: 50%;
+  z-index: 3;
+  width: 5.6em;
+  height: 1.6em;
+  border-radius: 1em;
+  background: #0e1117;
+  transform: translateX(-50%);
+}
+
+.sukiHead {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 3.3em 1.3em 1.3em;
+  background: var(--suki);
+  color: var(--suki-ink);
+}
+
+.sukiHead > svg {
+  width: 1.5em;
+  height: 1.5em;
+  flex: none;
+}
+
+.sukiKicker {
+  font-size: 0.74em;
+  font-weight: 700;
+  opacity: 0.78;
+}
+
+.sukiTitle {
+  font-size: 1.45em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.85em;
+  padding: 1.2em 1.3em 0.9em;
+}
+
+.sectionLabel {
+  font-size: 0.72em;
+  font-weight: 800;
+  color: var(--suki-muted);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 3em 1fr auto;
+  align-items: center;
+  gap: 0.75em;
+}
+
+.thumb {
+  display: grid;
+  place-items: center;
+  width: 3em;
+  height: 3em;
+  border-radius: 0.8em;
+  background: var(--suki-mist);
+  color: var(--suki-deep);
+}
+
+.thumb svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.itemName {
+  font-size: 0.9em;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.itemQty {
+  font-size: 0.72em;
+  color: var(--suki-muted);
+}
+
+.price {
+  font-size: 0.9em;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: var(--suki-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.line strong {
+  color: var(--suki-text);
+  font-weight: 750;
+}
+
+.points strong {
+  color: var(--suki-deep);
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 0.8em;
+  border-top: 1px dashed #d9dfdc;
+  font-size: 1.02em;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.place {
+  margin-top: auto;
+  padding: 0.95em;
+  border-radius: 999px;
+  background: var(--suki);
+  color: var(--suki-ink);
+  font-size: 0.9em;
+  font-weight: 800;
+  text-align: center;
+  transition:
+    transform 0.25s var(--ease-out-expo),
+    opacity 0.25s ease;
+}
+
+.placing {
+  transform: scale(0.96);
+  opacity: 0.72;
+}
+
+.tabbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.75em 0 1.25em;
+  border-top: 1px solid #eef0f2;
+  color: #9aa3a0;
+}
+
+.tabbar svg {
+  width: 1.35em;
+  height: 1.35em;
+}
+
+.tabActive {
+  color: var(--suki-deep);
+}
+
+.done {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3em;
+  padding: 2.2em 1.3em 1em;
+  text-align: center;
+  animation: fadeIn 0.35s ease-out both;
+}
+
+.receipt {
+  display: grid;
+  gap: 0.7em;
+  width: 100%;
+  margin-top: 1.4em;
+  padding: 1em 1.1em;
+  border-radius: 1em;
+  background: var(--suki-mist);
+  text-align: left;
+}
+
+.receipt .line {
+  align-items: center;
+}
+
+.tracker {
+  position: relative;
+  display: grid;
+  gap: 0.95em;
+  width: 100%;
+  margin: 1.3em 0 0;
+  padding: 0 0 0 0.35em;
+  list-style: none;
+  text-align: left;
+}
+
+.tracker::before {
+  content: "";
+  position: absolute;
+  top: 0.55em;
+  bottom: 0.55em;
+  left: 0.72em;
+  width: 1px;
+  background: #d9dfdc;
+}
+
+.trackStep {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
+  font-size: 0.78em;
+  color: #8a938f;
+}
+
+.trackDot {
+  width: 0.95em;
+  height: 0.95em;
+  flex: none;
+  border: 2px solid #d9dfdc;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.trackDone {
+  color: var(--suki-text);
+  font-weight: 750;
+}
+
+.trackDone .trackDot {
+  border-color: var(--suki);
+  background: var(--suki);
+}
+
+.check {
+  display: grid;
+  place-items: center;
+  width: 4.4em;
+  height: 4.4em;
+  margin-bottom: 0.7em;
+  border-radius: 50%;
+  background: var(--suki);
+  color: var(--suki-ink);
+  animation: pop 0.6s var(--ease-out-expo) 0.05s both;
+}
+
+.check svg {
+  width: 2.2em;
+  height: 2.2em;
+}
+
+.successTitle {
+  font-size: 1.35em;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.successPoints {
+  font-size: 0.9em;
+  font-weight: 800;
+  color: var(--suki-deep);
+}
+
+.successNote {
+  margin-top: auto;
+  font-size: 0.78em;
+  color: var(--suki-muted);
+}
+
+/* Small screens: give the phone more of the frame so its screen stays readable */
+@container (max-width: 30rem) {
+  .phone {
+    width: 22.5em;
+  }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(1.6em); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes arrive {
+  from { opacity: 0; transform: translateY(-0.8em); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes glow {
+  0%, 35% { background: #dcf8ec; }
+  100% { background: transparent; }
+}
+
+@keyframes flash {
+  0% { color: var(--suki-deep); }
+  100% { color: inherit; }
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.6); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
