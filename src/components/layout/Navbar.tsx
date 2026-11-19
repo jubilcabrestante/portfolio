@@ -21,13 +21,11 @@ export default function Navbar() {
 
   useEffect(() => {
     if (!open) return;
-    window.__lenis?.stop();
     document.documentElement.style.overflow = "hidden";
     firstLink.current?.focus();
     const onKey = (event: KeyboardEvent) => event.key === "Escape" && setOpen(false);
     document.addEventListener("keydown", onKey);
     return () => {
-      window.__lenis?.start();
       document.documentElement.style.overflow = "";
       document.removeEventListener("keydown", onKey);
     };
@@ -95,8 +93,7 @@ export default function Navbar() {
             animate={{ clipPath: "polygon(-20% 0, 100% 0, 100% 100%, -60% 100%)" }}
             exit={{ clipPath: "polygon(100% 0, 100% 0, 100% 0, 100% 0)", transition: { duration: 0.45, ease } }}
             transition={{ duration: 0.75, ease }}
-            className="fixed inset-0 flex flex-col bg-ink px-6 pb-10 pt-28 md:hidden"
-            data-lenis-prevent
+            className="fixed inset-0 flex flex-col overflow-y-auto overscroll-contain bg-ink px-6 pb-10 pt-28 md:hidden"
           >
             <ul className="grid gap-1">
               {[...nav, { href: "/#contact", label: "Contact" }].map((item, index) => (

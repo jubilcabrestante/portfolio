@@ -337,6 +337,13 @@ export default function Services() {
               <div>
                 <h3 className="title">{web.title}</h3>
                 <p className="mt-2 max-w-[28rem] text-haze">{web.summary}</p>
+                <ul className="mt-4 flex flex-wrap gap-2" aria-label="Built with">
+                  {web.tech.map((t) => (
+                    <li key={t} className="rounded-full bg-teal px-3.5 py-1.5 text-[0.875rem] font-[800] text-ink">
+                      {t}
+                    </li>
+                  ))}
+                </ul>
               </div>
               <Icon name="browser" size={30} className="shrink-0 text-teal" />
             </div>
@@ -355,6 +362,13 @@ export default function Services() {
               <div>
                 <h3 className="title">{mobile.title}</h3>
                 <p className="mt-2 max-w-[28rem] text-ink/75">{mobile.summary}</p>
+                <ul className="mt-4 flex flex-wrap gap-2" aria-label="Built with">
+                  {mobile.tech.map((t) => (
+                    <li key={t} className="rounded-full bg-ink px-3.5 py-1.5 text-[0.875rem] font-[800] text-teal">
+                      {t}
+                    </li>
+                  ))}
+                </ul>
               </div>
               <Icon name="phone" size={30} className="shrink-0" />
             </div>

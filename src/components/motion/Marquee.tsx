@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useAnimationFrame, useMotionValue, useScroll, useSpring, useTransform, useVelocity } from "framer-motion";
+import { motion, useAnimationFrame, useInView, useMotionValue, useScroll, useSpring, useTransform, useVelocity } from "framer-motion";
 import { useRef, type ReactNode } from "react";
 import { useReduced } from "@/components/motion/useReduced";
 
@@ -9,8 +9,10 @@ const wrap = (min: number, max: number, v: number) => {
   return ((((v - min) % range) + range) % range) + min;
 };
 
-/** Endless band that drifts on its own, speeds up and leans with scroll velocity. */
+/** Endless band that drifts on its own, speeds up and leans with scroll velocity. Pauses offscreen. */
 export default function Marquee({ children, speed = 2.5, reverse = false, className }: { children: ReactNode; speed?: number; reverse?: boolean; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref);
   const reduced = useReduced();
   const base = useMotionValue(0);
   const { scrollY } = useScroll();
@@ -21,7 +23,7 @@ export default function Marquee({ children, speed = 2.5, reverse = false, classN
   const direction = useRef(reverse ? -1 : 1);
 
   useAnimationFrame((_, delta) => {
-    if (reduced) return;
+    if (reduced || !inView) return;
     let move = direction.current * speed * (delta / 1000);
     const b = boost.get();
     if (b < 0) direction.current = reverse ? 1 : -1;
@@ -31,7 +33,7 @@ export default function Marquee({ children, speed = 2.5, reverse = false, classN
   });
 
   return (
-    <div className={className} aria-hidden="true">
+    <div ref={ref} className={className} aria-hidden="true">
       <motion.div className="flex w-max whitespace-nowrap will-change-transform" style={{ x, skewX: reduced ? 0 : skew }}>
         <div className="flex shrink-0 items-center">{children}</div>
         <div className="flex shrink-0 items-center">{children}</div>

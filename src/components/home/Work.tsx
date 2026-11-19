@@ -215,14 +215,15 @@ function DeckCard({ index, total, progress, tone, children }: CardProps) {
       <motion.article
         style={{ scale, top: `calc(${index * 26}px)` }}
         className={cn(
-          "relative grid w-full origin-top gap-10 overflow-hidden rounded-[28px] p-7 sm:p-10 md:h-[min(80svh,46rem)] md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-center lg:p-14",
+          // will-change keeps each card on its own raster: scaling it while scrolling no longer re-rasterizes the card every frame
+          "relative grid w-full origin-top gap-10 overflow-hidden rounded-[28px] p-7 will-change-transform sm:p-10 md:h-[min(80svh,46rem)] md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] md:items-center lg:p-14",
           tone === "paper" && "on-paper bg-paper text-ink",
           tone === "teal" && "on-teal bg-teal text-ink",
           tone === "ink" && "bg-ink-3 text-paper ring-1 ring-rule",
         )}
       >
         {children}
-        <motion.span aria-hidden="true" style={{ opacity: dim }} className="pointer-events-none absolute inset-0 bg-ink" />
+        <motion.span aria-hidden="true" style={{ opacity: dim }} className="pointer-events-none absolute inset-0 bg-ink will-change-[opacity]" />
       </motion.article>
     </div>
   );

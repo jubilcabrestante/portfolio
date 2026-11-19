@@ -33,7 +33,7 @@ One studio builds the whole product across every surface it needs: the mobile ap
 
 ## Capabilities and Constraints
 
-- **Core services (confirmed):** web apps; mobile apps for iOS and Android.
+- **Core services (confirmed):** web apps; mobile apps for iOS and Android, built with Flutter and native Android in Kotlin (Kotlin confirmed by the owner 2026-11-19).
 - **Supporting services (confirmed):** UI/UX design; backend & cloud (APIs, databases, sign-in, Firebase/Supabase setup); e-commerce & payments (storefronts, ordering, local payments such as GCash, Maya, and QR Ph); maintenance & support (updates, fixes, app-store releases, monitoring).
 - **Stack evidence:** Flutter with Bloc (mobile); Next.js, React, and Tailwind CSS (web); Firebase (Firestore, Cloud Functions, Cloud Messaging, App Check); Supabase/PostgreSQL; Node.js; Python for machine learning.
 - **This site:** Next.js 16 App Router + Tailwind CSS v4, single landing page at `/`; `/resume` redirects home; `metadataBase` is `https://dzypher.dev`.

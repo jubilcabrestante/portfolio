@@ -1,11 +1,9 @@
-import "lenis/dist/lenis.css";
 import "../styles/globals.css";
 import type { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Cursor from "@/components/motion/Cursor";
-import SmoothScroll from "@/components/motion/SmoothScroll";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -51,7 +49,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           Skip to content
         </a>
-        <SmoothScroll />
         <Cursor />
         <Navbar />
         <main id="main">{children}</main>

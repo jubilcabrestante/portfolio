@@ -32,6 +32,8 @@ export default function ParticleMark({ split, className }: { split?: MotionValue
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let particles: P[] = [];
     let w = 0, h = 0, dpr = 1, scale = 1, ox = 0, oy = 0;
+    // the canvas's position in the document, cached so pointer moves never read layout
+    let docX = 0, docY = 0;
     let raf = 0, running = false, visible = true;
     let start = performance.now();
     const pointer = { x: -9999, y: -9999, active: false };
@@ -40,6 +42,8 @@ export default function ParticleMark({ split, className }: { split?: MotionValue
       const rect = wrap.getBoundingClientRect();
       w = Math.max(1, rect.width);
       h = Math.max(1, rect.height);
+      docX = rect.left + window.scrollX;
+      docY = rect.top + window.scrollY;
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       canvas.width = Math.round(w * dpr);
       canvas.height = Math.round(h * dpr);
@@ -175,10 +179,10 @@ export default function ParticleMark({ split, className }: { split?: MotionValue
 
     const onVisibility = () => (document.visibilityState === "visible" && visible ? play() : stop());
     const onMove = (e: PointerEvent) => {
-      const r = canvas.getBoundingClientRect();
-      pointer.x = e.clientX - r.left;
-      pointer.y = e.clientY - r.top;
-      pointer.active = pointer.x > -40 && pointer.y > -40 && pointer.x < r.width + 40 && pointer.y < r.height + 40;
+      if (!visible) return;
+      pointer.x = e.pageX - docX;
+      pointer.y = e.pageY - docY;
+      pointer.active = pointer.x > -40 && pointer.y > -40 && pointer.x < w + 40 && pointer.y < h + 40;
     };
     const onLeave = () => (pointer.active = false);
 

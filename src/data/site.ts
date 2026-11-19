@@ -23,6 +23,7 @@ export const nav = [
 
 export const stackTicker = [
   "Flutter",
+  "Kotlin",
   "Next.js",
   "React",
   "Firebase",
@@ -56,6 +57,8 @@ export type CoreService = {
   summary: string;
   builds: string[];
   stack: string[];
+  /** headline technologies shown as badges on the service tile */
+  tech: string[];
 };
 
 export const coreServices: CoreService[] = [
@@ -63,14 +66,15 @@ export const coreServices: CoreService[] = [
     id: "mobile",
     icon: "phone",
     title: "Mobile apps",
-    summary: "iOS and Android apps from one Flutter codebase, published to the App Store and Google Play.",
+    summary: "iOS and Android apps built with Flutter, plus native Android apps in Kotlin, published to the App Store and Google Play.",
     builds: [
       "Customer apps for ordering, booking, and loyalty",
       "Staff, merchant, and courier apps",
       "Push notifications, maps, and in-app payments",
       "Releases to the App Store and Google Play",
     ],
-    stack: ["Flutter", "Dart", "Bloc", "Firebase"],
+    stack: ["Flutter", "Kotlin", "Dart", "Firebase"],
+    tech: ["Flutter", "Kotlin"],
   },
   {
     id: "web",
@@ -84,6 +88,7 @@ export const coreServices: CoreService[] = [
       "Marketing websites and landing pages",
     ],
     stack: ["Next.js", "React", "Tailwind CSS", "Node.js"],
+    tech: ["Next.js", "React"],
   },
 ];
 
