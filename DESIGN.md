@@ -150,7 +150,7 @@ The page is dark, kinetic, and confident. Ink is the ground; paper and teal arri
 Three colours carry the brand, the logo's own; everything else is a quieter step of ink.
 
 ### Primary
-- **Logo Teal** (#2dd4bf): The mobile half of the mark. Fills the primary action, selected chips, the Mobile tile, the PCSD deck card, and the whole contact section. Text on it is always ink.
+- **Logo Teal** (#2dd4bf): The mobile half of the mark. Fills the primary action, selected chips, the Mobile tile, and the whole contact section. Text on it is always ink.
 - **Bright Teal** (#5eead4): Hover lift for teal surfaces.
 - **Deep Teal** (#0f766e): Teal at text-safe strength on paper (5.5:1); icons and accents on light grounds.
 

@@ -35,7 +35,7 @@ One studio builds the whole product across every surface it needs: the mobile ap
 
 - **Core services (confirmed):** web apps; mobile apps for iOS and Android, built with Flutter and native Android in Kotlin (Kotlin confirmed by the owner 2026-11-19).
 - **Supporting services (confirmed):** UI/UX design; backend & cloud (APIs, databases, sign-in, Firebase/Supabase setup); e-commerce & payments (storefronts, ordering, local payments such as GCash, Maya, and QR Ph); maintenance & support (updates, fixes, app-store releases, monitoring).
-- **Stack evidence:** Kotlin Multiplatform for Android and iOS (the Suki apps since 2026-11-05) and Flutter with Bloc (mobile); Next.js, React, and Tailwind CSS (web); Supabase (Postgres, Realtime, Edge Functions: all of Suki's database and backend); Firebase (PCSD and Taga-Cuyo); Node.js; Python for machine learning.
+- **Stack evidence:** Kotlin Multiplatform for Android and iOS (the Suki apps since 2026-11-05) and Flutter with Bloc (mobile); Next.js, React, and Tailwind CSS (web); Supabase (Postgres, Realtime, Edge Functions: all of Suki's database and backend); Firebase (Taga-Cuyo); Node.js; Python for machine learning.
 - **This site:** Next.js 16 App Router + Tailwind CSS v4, single landing page at `/`; `/resume` redirects home; `metadataBase` is `https://dzypher.dev`.
 - **Undecided:** pricing and engagement models, team size beyond the founder, a contact form or call booking.
 
@@ -49,9 +49,9 @@ One studio builds the whole product across every surface it needs: the mobile ap
 ## Evidence on Hand
 
 - **Suki platform** (confirmed case study, facts corrected by the owner 2026-11-19): Kotlin Multiplatform mobile apps for Android and iOS, which replaced the Flutter apps at 2.0.0 (2026-11-05): `suki_perks` customer app (shop, earn, and redeem points), `suki_business` merchant app (POS, orders, reports), `suki_rider` courier app. Next.js web apps: `suki_perks_web` customer storefront, `suki_business_web` merchant console, `suki_landing` marketing site. All of the database and backend is Supabase, which replaced Firebase: Postgres with Realtime and 28 Edge Functions (`C:\projects\suki-supabase\suki-config`). Online payments through Maya Checkout (cards, Maya, QR Ph), which replaced PayMongo on 2026-09-27. Only these six apps appear on the site; Suki's internal tools are confidential. Real brand assets: `C:\projects\suki\suki_perks\assets\images\logo.png` and the two banners. **No real app screenshots exist**; `public/assets/sukiperks/1–4.png` are placeholders.
-- **PCSD Document Tracking System** (confirmed case study): built for the Palawan Council for Sustainable Development; documents are logged at intake, routed between offices with status history, and released; Flutter Web + Firebase. `public/assets/pcsd-dts/1–3.png` are placeholders.
 - **Taga-Cuyo** (confirmed case study): Tagalog–Cuyonon language-learning app (Flutter + Firebase) with a sequence-to-sequence translation model trained in Python; won Best Capstone Project Paper at the PSU 2025 Research Colloquium (`public/assets/certificates/2.jpg`). Real screenshots: `public/assets/taga-cuyo/1–8`.
 - **Not Dzypher work:** Sakayna (excluded by the owner, 2026-11-19).
+- **Confidential, never show:** the PCSD Document Tracking System (owner's employment work; removed by the owner 2026-11-21). Do not name it, describe it, or use it as proof anywhere on the site.
 - **Absent, do not fabricate:** testimonials, client logos, user counts, revenue, performance metrics, prices, delivery times, and any claim that Suki is live in production.
 
 ## Product Principles

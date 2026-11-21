@@ -7,7 +7,7 @@ import KineticTitle from "@/components/motion/KineticTitle";
 import Marquee from "@/components/motion/Marquee";
 import ZSection from "@/components/motion/ZSection";
 import { Icon } from "@/components/ui/Icon";
-import { pcsd, suki, tagaCuyo } from "@/data/site";
+import { suki, tagaCuyo } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { useReduced } from "@/components/motion/useReduced";
 
@@ -105,52 +105,6 @@ function SukiMap() {
           <text x={HUB_CX} y="262" textAnchor="middle" fontSize="11.5" fill="#9aa3b1">28 Edge Functions</text>
         </motion.g>
       </svg>
-    </div>
-  );
-}
-
-/* ---------- PCSD: a document's route ---------- */
-function PcsdRoute() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { step, reduced } = useTicker(ref, 5, 1300);
-  const at = reduced ? 3 : Math.min(step, 3);
-  return (
-    <div ref={ref} className="w-full" aria-hidden="true">
-      <div className="relative px-2 pt-14">
-        <div className="absolute inset-x-[12.5%] top-[4.6rem] h-[3px] rounded-full bg-ink/15" />
-        <motion.div
-          className="absolute left-[12.5%] top-[4.6rem] h-[3px] origin-left rounded-full bg-ink"
-          animate={{ width: `${(at / 3) * 75}%` }}
-          transition={{ duration: 0.9, ease }}
-        />
-        <motion.div
-          className="absolute top-3 -translate-x-1/2"
-          animate={{ left: `${12.5 + at * 25}%` }}
-          transition={{ duration: 0.9, ease }}
-        >
-          <span className="flex items-center gap-1.5 rounded-full bg-ink px-3 py-1.5 text-[0.75rem] font-[800] text-paper shadow-[0_10px_20px_-10px_rgb(14_17_23/0.6)]">
-            <Icon name="file" size={14} /> DTS record
-          </span>
-        </motion.div>
-        <ol className="relative grid grid-cols-4">
-          {pcsd.trail.map((stop, i) => (
-            <li key={stop.title} className="flex flex-col items-center text-center">
-              <span
-                className={cn(
-                  "grid size-12 place-items-center rounded-full ring-4 ring-teal transition-colors duration-500",
-                  i <= at ? "bg-ink text-teal" : "bg-teal text-ink/50 outline outline-2 outline-ink/15",
-                )}
-              >
-                <Icon name={stop.icon} size={20} />
-              </span>
-              <span className="mt-3 text-[0.8125rem] font-[800] leading-tight sm:text-[0.9375rem]">{stop.title}</span>
-              <span className={cn("mt-1 hidden max-w-[11rem] text-[0.8125rem] leading-snug text-ink/70 transition-opacity duration-500 sm:block", i <= at ? "opacity-100" : "opacity-40")}>
-                {stop.text}
-              </span>
-            </li>
-          ))}
-        </ol>
-      </div>
     </div>
   );
 }
@@ -266,12 +220,12 @@ export default function Work() {
         <div className="grid gap-x-14 gap-y-6 lg:grid-cols-2 lg:items-end">
           <KineticTitle id="work-title" lines={["Selected", "work."]} className="display-xl" />
           <p className="lede max-w-[30rem] text-haze">
-            Three products we’ve built, across mobile, web, and the backend between them.
+            Two products we’ve built, across mobile, web, and the backend between them.
           </p>
         </div>
 
         <div ref={deck} className="mt-10 grid gap-5 pb-[clamp(4rem,2rem+6vw,8rem)] md:mt-0 md:block md:gap-0">
-          <DeckCard index={0} total={3} progress={scrollYProgress} tone="paper">
+          <DeckCard index={0} total={2} progress={scrollYProgress} tone="paper">
             <CaseText
               title={suki.name}
               kind={suki.kind}
@@ -283,18 +237,7 @@ export default function Work() {
             <SukiMap />
           </DeckCard>
 
-          <DeckCard index={1} total={3} progress={scrollYProgress} tone="teal">
-            <CaseText
-              title="PCSD Document Tracking"
-              kind={`For the ${pcsd.client}`}
-              summary={pcsd.summary}
-              tags={pcsd.stack}
-              muted="text-ink/75"
-            />
-            <PcsdRoute />
-          </DeckCard>
-
-          <DeckCard index={2} total={3} progress={scrollYProgress} tone="ink">
+          <DeckCard index={1} total={2} progress={scrollYProgress} tone="ink">
             <CaseText
               title={tagaCuyo.name}
               kind={tagaCuyo.kind}

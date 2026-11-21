@@ -17,7 +17,7 @@ export const portfolioData: PortfolioData = {
       "Flutter and full-stack web developer with work already shipped: a ride-booking app live on Google Play, a Python machine-translation model, and systems built for real clients. I’m looking for a team where I can keep building products that last.",
     byline: "Puerto Princesa, Palawan",
     lede: [
-      "I’m an Information Technology graduate of Palawan State University, building with Flutter on mobile and React & Next.js on the web — clean architecture first, predictable state management, and a proper test pass before anything ships. My delivered work spans ride-booking, language learning, customer loyalty, and government document tracking.",
+      "I’m an Information Technology graduate of Palawan State University, building with Flutter on mobile and React & Next.js on the web — clean architecture first, predictable state management, and a proper test pass before anything ships. My delivered work spans ride-booking, language learning, and customer loyalty.",
       "The part I care about most happens before the first commit: questioning the brief. Ideas that pass through my desk come back sharper, and the systems behind them come back robust, scalable, and ready to grow. For my thesis, that meant training a sequence-to-sequence translation model in Python and shipping it inside an app that helps preserve the Cuyonon language of Palawan.",
     ],
     portrait: {
@@ -113,29 +113,6 @@ export const portfolioData: PortfolioData = {
         { src: "/assets/taga-cuyo/6.png", caption: "Taga-Cuyo — app screen." },
         { src: "/assets/taga-cuyo/7.jpg", caption: "Taga-Cuyo — app screen." },
         { src: "/assets/taga-cuyo/8.png", caption: "Taga-Cuyo — app screen." },
-      ],
-    },
-    {
-      id: "pcsd-dts",
-      title: "PCSD Document Tracking System",
-      kicker: "GOVERNMENT · WEB SYSTEM",
-      year: "2025",
-      role: "Developer",
-      stack: ["Flutter Web", "Firebase"],
-      summary:
-        "A document tracking system for the Palawan Council for Sustainable Development — following paperwork from the receiving desk to release.",
-      story: [
-        "Government documents change hands constantly, and every handoff is a chance to lose one. The DTS gives PCSD a single paper trail: each document is logged at intake, routed between offices, and stamped with status updates until it is released.",
-      ],
-      highlights: [
-        "End-to-end document trail from intake to release",
-        "Office-to-office routing with status history",
-        "Searchable records with full status history, backed by Firebase",
-      ],
-      images: [
-        { src: "/assets/pcsd-dts/1.png", caption: "PCSD DTS — system screenshot." },
-        { src: "/assets/pcsd-dts/2.png", caption: "PCSD DTS — system screenshot." },
-        { src: "/assets/pcsd-dts/3.png", caption: "PCSD DTS — system screenshot." },
       ],
     },
   ],

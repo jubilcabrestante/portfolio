@@ -155,20 +155,6 @@ export const suki = {
   ],
 };
 
-export const pcsd = {
-  name: "PCSD Document Tracking System",
-  client: "Palawan Council for Sustainable Development",
-  summary:
-    "Government documents change hands constantly. The system gives PCSD one paper trail: every document is logged at intake, routed between offices, and tracked until it is released.",
-  trail: [
-    { icon: "file", title: "Logged at intake", text: "Each document gets a record the moment it arrives." },
-    { icon: "route", title: "Routed between offices", text: "Every handoff is recorded, so nothing goes missing." },
-    { icon: "clock", title: "Status at every step", text: "A searchable history shows where it is and who has it." },
-    { icon: "stamp", title: "Released", text: "The trail closes with the release on record." },
-  ] satisfies { icon: IconName; title: string; text: string }[],
-  stack: ["Flutter Web", "Firebase"],
-};
-
 export const tagaCuyo = {
   name: "Taga-Cuyo",
   kind: "Language learning",
